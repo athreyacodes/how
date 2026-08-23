@@ -33,6 +33,14 @@
     content="Technical writing on front-end architecture, Angular, and web performance.">
   <meta name="twitter:image" content="https://blogs-99980.web.app/images/og-card.jpg">
   <meta name="twitter:image:alt" content="Blogs — technical writing by Athreya M R">
+
+  <!--
+    The full-viewport cloud texture is the largest paint on narrow screens, and
+    a CSS background is only discovered once the stylesheet parses. Browsers
+    without AVIF skip this on the type hint and take the PNG from the stylesheet.
+  -->
+  <link rel="preload" as="image" type="image/avif" href="/images/background/cloud3.avif"
+    fetchpriority="high">
 </head>
 
 <body>

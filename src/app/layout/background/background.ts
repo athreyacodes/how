@@ -4,15 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-background',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'aria-hidden': 'true' },
-  template: `
-    <div class="wave3-container">
-      <div class="wave3-sea"></div>
-      <div class="wave3-sky blur slow">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  `
+  template: '<div class="clouds"></div>',
+  styleUrl: './background.scss'
 })
 export class Background {}

@@ -4,11 +4,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background: #eeeeee;
+  --background-light: #d2dfdf;
+  --background-clouds-opacity: 0.5;
+  --text: #12494c;
+}
+
 html {
   scroll-behavior: smooth;
   color-scheme: light only;
-  /* Keep body transparent so the wave background stays behind content. */
-  background-color: var(--bg-color, #eeeeee);
+  /* Safari overscroll / chrome. Keep body transparent so this fill stays on
+     the canvas and does not paint over the z-index: -1 cloud layer. */
+  background-color: var(--background);
 }
 
 body {
@@ -17,7 +25,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background-color: transparent;
-  color: var(--primary-color, #156064);
+  color: var(--text);
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
