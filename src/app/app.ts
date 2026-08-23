@@ -8,6 +8,7 @@ import { Background } from './layout/background/background';
   selector: 'app-root',
   imports: [RouterOutlet, Background],
   templateUrl: './app.html',
+  styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {

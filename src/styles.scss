@@ -6,13 +6,9 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light;
+  color-scheme: light only;
   /* Keep body transparent so the wave background stays behind content. */
-  background-color: var(--bg-color);
-}
-
-html.color-scheme-dark {
-  color-scheme: dark;
+  background-color: var(--bg-color, #eeeeee);
 }
 
 body {
@@ -21,6 +17,7 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   background-color: transparent;
+  color: var(--primary-color, #156064);
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
   font-synthesis-weight: none;
   -webkit-font-smoothing: antialiased;
