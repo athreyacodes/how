@@ -1,0 +1,6 @@
+# Search engines and AI answer crawlers are welcome.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://blogs-a2ff7.web.app/sitemap.xml
