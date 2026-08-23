@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blogs-a2ff7.web.app/sitemap.xml
+Sitemap: https://blogs-99980.web.app/sitemap.xml
