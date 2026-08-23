@@ -1,23 +1,69 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Blogs</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <!-- Wave background pasted here for faster load -->
-  <div class="wave3-container">
-    <div id="background-div"> 
-        <span></span>
-        <span></span>
-        <span></span>
-    </div> 
-  </div>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description"
+    content="Technical writing on front-end architecture, Angular, and web performance.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="Athreya M R">
+  <meta name="theme-color" content="#eeeeee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
 
-  <!-- Load angular code -->
+  <link rel="canonical" href="https://blogs-99980.web.app/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta property="og:site_name" content="Blogs">
+  <meta property="og:title" content="Blogs">
+  <meta property="og:description"
+    content="Technical writing on front-end architecture, Angular, and web performance.">
+  <meta property="og:image" content="https://blogs-99980.web.app/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Blogs — technical writing by Athreya M R">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blogs-99980.web.app/">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blogs">
+  <meta name="twitter:description"
+    content="Technical writing on front-end architecture, Angular, and web performance.">
+  <meta name="twitter:image" content="https://blogs-99980.web.app/images/og-card.jpg">
+  <meta name="twitter:image:alt" content="Blogs — technical writing by Athreya M R">
+</head>
+
+<body>
+  <!-- Resolve theme before first paint so hydration never flashes. -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('blogs.theme');
+        var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('color-scheme-dark', dark);
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+
+        var color = dark ? '#050505' : '#eeeeee';
+        var metas = document.querySelectorAll('meta[name="theme-color"]');
+        var meta = metas[0];
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute('name', 'theme-color');
+          document.head.appendChild(meta);
+        }
+        meta.removeAttribute('media');
+        meta.setAttribute('content', color);
+        for (var i = 1; i < metas.length; i++) {
+          metas[i].remove();
+        }
+      } catch (e) { }
+    })();
+  </script>
+
   <app-root></app-root>
 </body>
+
 </html>

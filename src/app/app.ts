@@ -1,11 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { SeoService } from './core/seo';
+import { Background } from './layout/background/background';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  template: `<router-outlet />`
+  imports: [RouterOutlet, Background],
+  templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
-  protected readonly title = signal('blogs');
+  constructor() {
+    inject(SeoService).apply();
+  }
 }
