@@ -39,6 +39,13 @@ export class Posts {
   }
 
   newestUpdated(): string | undefined {
-    return this.all[0]?.updated;
+    if (this.all.length === 0) {
+      return undefined;
+    }
+
+    return this.all.reduce(
+      (latest, post) => (post.updated > latest ? post.updated : latest),
+      this.all[0].updated
+    );
   }
 }

@@ -10,6 +10,33 @@
     ],
     "headers": [
       {
+        "source": "/404",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, follow"
+          }
+        ]
+      },
+      {
+        "source": "/404.html",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, follow"
+          }
+        ]
+      },
+      {
+        "source": "/images/og-card.jpg",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=86400"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(js|css|woff2|avif|webp|jpg|jpeg|png|svg|ico|ttf)",
         "headers": [
           {

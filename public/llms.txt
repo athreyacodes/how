@@ -1,0 +1,37 @@
+# How
+
+> Notes from Athreya M R on how he builds software.
+
+The site is a static blog at https://how.athreya.codes. Each note is one decision explained the way you would tell a teammate — Angular, architecture, and the tools around them.
+
+## Notes
+
+- [MCP belongs in front of the APIs you already have](https://how.athreya.codes/mcp-in-front-of-the-api-repo): How to add MCP in an API repo so agents can query latest email-threat detections and search without scraping a UI.
+- [Remotes still need a route](https://how.athreya.codes/remotes-still-need-a-route): How an independently deployed Angular remote dies in the host when routing and auth contracts are implied instead of written down.
+- [Affected is the CI](https://how.athreya.codes/affected-is-the-ci): How Nx affected keeps a multi-product Angular monorepo honest in CI — and what happens when the graph lies.
+- [Teachers and donors are not the same user](https://how.athreya.codes/teachers-and-donors-are-not-the-same-user): How a Node API for a child-education NGO splits teacher and donor access so progress can be shared without leaking learners.
+- [Go after years of Node](https://how.athreya.codes/go-after-years-of-node): What actually changes when someone who ships Node and Java starts writing small Go tools.
+- [Share the tokens, not the components](https://how.athreya.codes/share-the-tokens-not-the-components): How a design-token library keeps Angular micro frontends looking like one product without a fat shared component dump.
+- [The email template is a contract](https://how.athreya.codes/the-email-template-is-a-contract): How to version an HTML email template so placeholders, loops, escaping, and i18n stay a stable contract with the sending service.
+- [Tags are the build graph](https://how.athreya.codes/tags-are-the-build-graph): How Nx module-boundary tags keep Angular libraries and micro frontends from depending on the wrong things.
+- [Photos of children are not “just uploads”](https://how.athreya.codes/photos-of-children-are-not-uploads): How a small Node API for a child-education NGO stores photos with consent, private objects, and signed URLs.
+- [Small Go CLIs still earn their keep](https://how.athreya.codes/small-go-clis): How a tiny Go command stays honest — flags, exit codes, and tests you can run in one file.
+- [A shell is not a folder](https://how.athreya.codes/a-shell-is-not-a-folder): How to split an Angular micro frontend so the shell stays a host, not a junk drawer of remotes.
+- [HTML email is still tables](https://how.athreya.codes/html-email-is-still-tables): How to build a complex HTML email as a front-end artifact — nested tables, inline CSS, and a preview that is not Gmail.
+- [One repo when you ship several products](https://how.athreya.codes/one-repo-for-several-products): How an Nx monorepo earns its keep when several Angular products share libraries, tooling, and a release cadence.
+- [The HTML the crawler actually gets](https://how.athreya.codes/the-html-the-crawler-gets): How to check prerendered Angular HTML for real content, social cards, JSON-LD, and a 404 that stays a 404.
+- [Metadata belongs in the resolver, not ngOnInit](https://how.athreya.codes/metadata-belongs-in-the-resolver): How to set title, canonical, and Open Graph tags in a route resolver so prerendered HTML already has them.
+- [Angular 22 prerender without the ceremony](https://how.athreya.codes/angular-22-prerender): How to ship crawlable Angular pages with outputMode static, a resolver for metadata, and no CMS.
+- [Zoneless means you meant the update](https://how.athreya.codes/zoneless-means-you-meant-it): How to run Angular without Zone.js so only signal writes and explicit marks update the view.
+- [inject() is the constructor now](https://how.athreya.codes/inject-is-the-constructor): A standalone component can take what it needs with inject. Local UI state belongs in a signal.
+- [Inputs that are already signals](https://how.athreya.codes/inputs-that-are-already-signals): How input, output, and model replace decorator inputs when a shared card has to react to the parent.
+- [The filter is a signal, not a field you remember to update](https://how.athreya.codes/the-filter-is-a-signal): How a writable signal and a computed list replace a field plus a manual refresh on a filter chip.
+- [Stop putting *ngIf on a live list](https://how.athreya.codes/stop-star-ngif-on-a-live-list): How @if, @for, and @empty replace *ngIf and *ngFor on a list that actually changes.
+- [Migrate in this order or you will migrate twice](https://how.athreya.codes/migrate-in-this-order): How to sequence an Angular migration on a federated product so each step can ship without undoing the last one.
+- [The version bump is not the migration](https://how.athreya.codes/the-version-bump-is-not-the-migration): Bumping Angular on an Enate-era product does not give you the Mimecast-era app shape — you still have to change how the app is built.
+
+## Optional
+
+- [RSS](https://how.athreya.codes/rss.xml)
+- [Sitemap](https://how.athreya.codes/sitemap.xml)
+- [Author](https://athreya.codes/)

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>How</title>
+    <link>https://how.athreya.codes/</link>
+    <atom:link href="https://how.athreya.codes/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Here’s how I build. Notes from a decade of front-end work — Angular, architecture, and the tools around them — written down as I go.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Tue, 25 Aug 2026 12:00:00 GMT</lastBuildDate>
+    <managingEditor>athreyacodes@gmail.com (Athreya M R)</managingEditor>
+    <webMaster>athreyacodes@gmail.com (Athreya M R)</webMaster>
+    <image>
+      <url>https://how.athreya.codes/images/og-card.jpg</url>
+      <title>How</title>
+      <link>https://how.athreya.codes/</link>
+    </image>
+    <item>
+      <title>MCP belongs in front of the APIs you already have</title>
+      <link>https://how.athreya.codes/mcp-in-front-of-the-api-repo</link>
+      <guid isPermaLink="true">https://how.athreya.codes/mcp-in-front-of-the-api-repo</guid>
+      <pubDate>Fri, 05 Jun 2026 12:00:00 GMT</pubDate>
+      <description>How to add MCP in an API repo so agents can query latest email-threat detections and search without scraping a UI.</description>
+      <category>mcp</category>
+      <category>ai</category>
+    </item>
+    <item>
+      <title>Remotes still need a route</title>
+      <link>https://how.athreya.codes/remotes-still-need-a-route</link>
+      <guid isPermaLink="true">https://how.athreya.codes/remotes-still-need-a-route</guid>
+      <pubDate>Fri, 29 May 2026 12:00:00 GMT</pubDate>
+      <description>How an independently deployed Angular remote dies in the host when routing and auth contracts are implied instead of written down.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>Affected is the CI</title>
+      <link>https://how.athreya.codes/affected-is-the-ci</link>
+      <guid isPermaLink="true">https://how.athreya.codes/affected-is-the-ci</guid>
+      <pubDate>Fri, 22 May 2026 12:00:00 GMT</pubDate>
+      <description>How Nx affected keeps a multi-product Angular monorepo honest in CI — and what happens when the graph lies.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>Teachers and donors are not the same user</title>
+      <link>https://how.athreya.codes/teachers-and-donors-are-not-the-same-user</link>
+      <guid isPermaLink="true">https://how.athreya.codes/teachers-and-donors-are-not-the-same-user</guid>
+      <pubDate>Fri, 15 May 2026 12:00:00 GMT</pubDate>
+      <description>How a Node API for a child-education NGO splits teacher and donor access so progress can be shared without leaking learners.</description>
+      <category>node</category>
+      <category>backend</category>
+    </item>
+    <item>
+      <title>Go after years of Node</title>
+      <link>https://how.athreya.codes/go-after-years-of-node</link>
+      <guid isPermaLink="true">https://how.athreya.codes/go-after-years-of-node</guid>
+      <pubDate>Fri, 08 May 2026 12:00:00 GMT</pubDate>
+      <description>What actually changes when someone who ships Node and Java starts writing small Go tools.</description>
+      <category>go</category>
+      <category>backend</category>
+    </item>
+    <item>
+      <title>Share the tokens, not the components</title>
+      <link>https://how.athreya.codes/share-the-tokens-not-the-components</link>
+      <guid isPermaLink="true">https://how.athreya.codes/share-the-tokens-not-the-components</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
+      <description>How a design-token library keeps Angular micro frontends looking like one product without a fat shared component dump.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>The email template is a contract</title>
+      <link>https://how.athreya.codes/the-email-template-is-a-contract</link>
+      <guid isPermaLink="true">https://how.athreya.codes/the-email-template-is-a-contract</guid>
+      <pubDate>Fri, 24 Apr 2026 12:00:00 GMT</pubDate>
+      <description>How to version an HTML email template so placeholders, loops, escaping, and i18n stay a stable contract with the sending service.</description>
+      <category>javascript</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>Tags are the build graph</title>
+      <link>https://how.athreya.codes/tags-are-the-build-graph</link>
+      <guid isPermaLink="true">https://how.athreya.codes/tags-are-the-build-graph</guid>
+      <pubDate>Fri, 17 Apr 2026 12:00:00 GMT</pubDate>
+      <description>How Nx module-boundary tags keep Angular libraries and micro frontends from depending on the wrong things.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>Photos of children are not “just uploads”</title>
+      <link>https://how.athreya.codes/photos-of-children-are-not-uploads</link>
+      <guid isPermaLink="true">https://how.athreya.codes/photos-of-children-are-not-uploads</guid>
+      <pubDate>Fri, 10 Apr 2026 12:00:00 GMT</pubDate>
+      <description>How a small Node API for a child-education NGO stores photos with consent, private objects, and signed URLs.</description>
+      <category>node</category>
+      <category>backend</category>
+    </item>
+    <item>
+      <title>Small Go CLIs still earn their keep</title>
+      <link>https://how.athreya.codes/small-go-clis</link>
+      <guid isPermaLink="true">https://how.athreya.codes/small-go-clis</guid>
+      <pubDate>Fri, 03 Apr 2026 12:00:00 GMT</pubDate>
+      <description>How a tiny Go command stays honest — flags, exit codes, and tests you can run in one file.</description>
+      <category>go</category>
+      <category>backend</category>
+    </item>
+    <item>
+      <title>A shell is not a folder</title>
+      <link>https://how.athreya.codes/a-shell-is-not-a-folder</link>
+      <guid isPermaLink="true">https://how.athreya.codes/a-shell-is-not-a-folder</guid>
+      <pubDate>Fri, 27 Mar 2026 12:00:00 GMT</pubDate>
+      <description>How to split an Angular micro frontend so the shell stays a host, not a junk drawer of remotes.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>HTML email is still tables</title>
+      <link>https://how.athreya.codes/html-email-is-still-tables</link>
+      <guid isPermaLink="true">https://how.athreya.codes/html-email-is-still-tables</guid>
+      <pubDate>Fri, 20 Mar 2026 12:00:00 GMT</pubDate>
+      <description>How to build a complex HTML email as a front-end artifact — nested tables, inline CSS, and a preview that is not Gmail.</description>
+      <category>javascript</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>One repo when you ship several products</title>
+      <link>https://how.athreya.codes/one-repo-for-several-products</link>
+      <guid isPermaLink="true">https://how.athreya.codes/one-repo-for-several-products</guid>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+      <description>How an Nx monorepo earns its keep when several Angular products share libraries, tooling, and a release cadence.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>The HTML the crawler actually gets</title>
+      <link>https://how.athreya.codes/the-html-the-crawler-gets</link>
+      <guid isPermaLink="true">https://how.athreya.codes/the-html-the-crawler-gets</guid>
+      <pubDate>Fri, 06 Mar 2026 12:00:00 GMT</pubDate>
+      <description>How to check prerendered Angular HTML for real content, social cards, JSON-LD, and a 404 that stays a 404.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>seo</category>
+      <category>ssr-ssg</category>
+    </item>
+    <item>
+      <title>Metadata belongs in the resolver, not ngOnInit</title>
+      <link>https://how.athreya.codes/metadata-belongs-in-the-resolver</link>
+      <guid isPermaLink="true">https://how.athreya.codes/metadata-belongs-in-the-resolver</guid>
+      <pubDate>Fri, 27 Feb 2026 12:00:00 GMT</pubDate>
+      <description>How to set title, canonical, and Open Graph tags in a route resolver so prerendered HTML already has them.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>seo</category>
+      <category>ssr-ssg</category>
+    </item>
+    <item>
+      <title>Angular 22 prerender without the ceremony</title>
+      <link>https://how.athreya.codes/angular-22-prerender</link>
+      <guid isPermaLink="true">https://how.athreya.codes/angular-22-prerender</guid>
+      <pubDate>Fri, 20 Feb 2026 12:00:00 GMT</pubDate>
+      <description>How to ship crawlable Angular pages with outputMode static, a resolver for metadata, and no CMS.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>seo</category>
+      <category>ssr-ssg</category>
+    </item>
+    <item>
+      <title>Zoneless means you meant the update</title>
+      <link>https://how.athreya.codes/zoneless-means-you-meant-it</link>
+      <guid isPermaLink="true">https://how.athreya.codes/zoneless-means-you-meant-it</guid>
+      <pubDate>Fri, 13 Feb 2026 12:00:00 GMT</pubDate>
+      <description>How to run Angular without Zone.js so only signal writes and explicit marks update the view.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>inject() is the constructor now</title>
+      <link>https://how.athreya.codes/inject-is-the-constructor</link>
+      <guid isPermaLink="true">https://how.athreya.codes/inject-is-the-constructor</guid>
+      <pubDate>Fri, 06 Feb 2026 12:00:00 GMT</pubDate>
+      <description>A standalone component can take what it needs with inject. Local UI state belongs in a signal.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>Inputs that are already signals</title>
+      <link>https://how.athreya.codes/inputs-that-are-already-signals</link>
+      <guid isPermaLink="true">https://how.athreya.codes/inputs-that-are-already-signals</guid>
+      <pubDate>Fri, 30 Jan 2026 12:00:00 GMT</pubDate>
+      <description>How input, output, and model replace decorator inputs when a shared card has to react to the parent.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>The filter is a signal, not a field you remember to update</title>
+      <link>https://how.athreya.codes/the-filter-is-a-signal</link>
+      <guid isPermaLink="true">https://how.athreya.codes/the-filter-is-a-signal</guid>
+      <pubDate>Fri, 23 Jan 2026 12:00:00 GMT</pubDate>
+      <description>How a writable signal and a computed list replace a field plus a manual refresh on a filter chip.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>Stop putting *ngIf on a live list</title>
+      <link>https://how.athreya.codes/stop-star-ngif-on-a-live-list</link>
+      <guid isPermaLink="true">https://how.athreya.codes/stop-star-ngif-on-a-live-list</guid>
+      <pubDate>Fri, 16 Jan 2026 12:00:00 GMT</pubDate>
+      <description>How @if, @for, and @empty replace *ngIf and *ngFor on a list that actually changes.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+    <item>
+      <title>Migrate in this order or you will migrate twice</title>
+      <link>https://how.athreya.codes/migrate-in-this-order</link>
+      <guid isPermaLink="true">https://how.athreya.codes/migrate-in-this-order</guid>
+      <pubDate>Fri, 09 Jan 2026 12:00:00 GMT</pubDate>
+      <description>How to sequence an Angular migration on a federated product so each step can ship without undoing the last one.</description>
+      <category>angular</category>
+      <category>frontend</category>
+      <category>micro-front-end</category>
+    </item>
+    <item>
+      <title>The version bump is not the migration</title>
+      <link>https://how.athreya.codes/the-version-bump-is-not-the-migration</link>
+      <guid isPermaLink="true">https://how.athreya.codes/the-version-bump-is-not-the-migration</guid>
+      <pubDate>Fri, 02 Jan 2026 12:00:00 GMT</pubDate>
+      <description>Bumping Angular on an Enate-era product does not give you the Mimecast-era app shape — you still have to change how the app is built.</description>
+      <category>angular</category>
+      <category>frontend</category>
+    </item>
+  </channel>
+</rss>

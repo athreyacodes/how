@@ -64,6 +64,7 @@ draft: false
 - `slug` is the filename. Lowercase kebab-case. URLs are `https://how.athreya.codes/{slug}`.
 - `mainTag` is required. Extra `tags` must come from the same list. Typical pairs: `angular` + `frontend`, `javascript` + `frontend`, `node` + `backend`, `go` + `backend`, `mcp` + `ai`. Add `micro-front-end`, `seo`, or `ssr-ssg` when that is the subject.
 - If you change the tag list, update `src/app/core/post.ts` and `scripts/content.mjs` together. Chip order on home is `angular, javascript, frontend, micro-front-end, seo, ssr-ssg, node, go, backend, mcp, ai`.
+- Social cards use `/images/og-card.jpg` unless `image` is a JPEG, PNG, or WebP.
 - `draft: true` stays off production. Local `npm start` still shows it.
 - Reserved slugs: `404`, `about`, `search`, `tags`.
 

@@ -1,7 +1,12 @@
 import { Routes } from '@angular/router';
 
 import seoData from './data/seo.json';
-import { homeSeoResolver, notFoundSeoResolver, postResolver } from './core/seo.resolver';
+import {
+  homeSeoResolver,
+  notFoundSeoResolver,
+  postResolver,
+  postTitleResolver
+} from './core/seo.resolver';
 import { Home } from './pages/home/home';
 
 export const routes: Routes = [
@@ -19,6 +24,7 @@ export const routes: Routes = [
   },
   {
     path: ':slug',
+    title: postTitleResolver,
     resolve: { post: postResolver },
     loadComponent: () => import('./pages/post/post').then((module) => module.PostPage)
   },

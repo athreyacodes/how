@@ -6,12 +6,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <footer class="site-footer">
       <p class="credit">© {{ year }} Athreya M R</p>
       <nav class="elsewhere" aria-label="Elsewhere">
-        <a class="home-link" href="https://athreya.codes/" target="_blank" rel="noopener noreferrer">athreya.codes</a>
+        <a class="home-link" href="https://athreya.codes/" target="_blank" rel="noopener noreferrer me">athreya.codes</a>
         <a
           class="icon-link"
           href="https://www.linkedin.com/in/athreyamr/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer me"
           aria-label="LinkedIn"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -25,7 +25,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
           class="icon-link"
           href="https://github.com/athreyacodes"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer me"
           aria-label="GitHub"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

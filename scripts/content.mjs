@@ -159,6 +159,8 @@ function wrapPostSections(html) {
     .join('');
 }
 
+const RASTER_IMAGE = /\.(?:jpe?g|png|webp)$/i;
+
 function defaultBanner(tag) {
   const webp = join(root, 'public/images/tags', `${tag}.webp`);
   const svg = join(root, 'public/images/tags', `${tag}.svg`);
@@ -172,6 +174,46 @@ function defaultBanner(tag) {
   }
 
   return seoData.home.ogImage;
+}
+
+function seoImageOf(image) {
+  if (typeof image === 'string' && RASTER_IMAGE.test(image)) {
+    return image;
+  }
+
+  return seoData.home.ogImage;
+}
+
+function wordCount(html) {
+  const text = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-z0-9#]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return text ? text.split(' ').length : 0;
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;');
+}
+
+function latestUpdated(posts) {
+  return posts.reduce(
+    (latest, post) => (post.updated > latest ? post.updated : latest),
+    seoData.dateModified
+  );
+}
+
+function rfc822(isoDate) {
+  return new Date(`${isoDate}T12:00:00.000Z`).toUTCString();
 }
 
 function normalizeTags(tags, slug, mainTag) {
@@ -277,6 +319,8 @@ async function loadPosts() {
       tags: normalizeTags(data.tags, slug, data.mainTag),
       image: data.image ?? null,
       banner,
+      seoImage: seoImageOf(data.image),
+      wordCount: wordCount(html),
       draft,
       html
     });
@@ -287,36 +331,110 @@ async function loadPosts() {
 }
 
 function sitemapXml(posts) {
+  const shareImage = `${siteUrl}${seoData.home.ogImage}`;
   const urls = [
     {
       loc: `${siteUrl}/`,
-      lastmod: posts[0]?.updated ?? seoData.dateModified,
+      lastmod: latestUpdated(posts),
       changefreq: 'weekly',
-      priority: '1.0'
+      priority: '1.0',
+      image: shareImage,
+      imageTitle: seoData.home.imageAlt
     },
     ...posts.map((post) => ({
       loc: `${siteUrl}/${post.slug}`,
       lastmod: post.updated,
       changefreq: 'monthly',
-      priority: '0.8'
+      priority: '0.8',
+      image: `${siteUrl}${post.seoImage}`,
+      imageTitle: post.title
     }))
   ];
 
   const body = urls
     .map(
       (url) => `  <url>
-    <loc>${url.loc}</loc>
+    <loc>${escapeXml(url.loc)}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
+    <image:image>
+      <image:loc>${escapeXml(url.image)}</image:loc>
+      <image:title>${escapeXml(url.imageTitle)}</image:title>
+    </image:image>
   </url>`
     )
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${body}
 </urlset>
+`;
+}
+
+function rssXml(posts) {
+  const lastBuild = rfc822(latestUpdated(posts));
+  const items = posts
+    .map((post) => {
+      const link = `${siteUrl}/${post.slug}`;
+      const categories = post.tags
+        .map((tag) => `      <category>${escapeXml(tag)}</category>`)
+        .join('\n');
+
+      return `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${escapeXml(link)}</link>
+      <guid isPermaLink="true">${escapeXml(link)}</guid>
+      <pubDate>${rfc822(post.date)}</pubDate>
+      <description>${escapeXml(post.description)}</description>
+${categories}
+    </item>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${escapeXml(seoData.siteName)}</title>
+    <link>${escapeXml(`${siteUrl}/`)}</link>
+    <atom:link href="${escapeXml(`${siteUrl}${seoData.rssPath}`)}" rel="self" type="application/rss+xml"/>
+    <description>${escapeXml(seoData.home.description)}</description>
+    <language>${seoData.language.toLowerCase()}</language>
+    <lastBuildDate>${lastBuild}</lastBuildDate>
+    <managingEditor>${escapeXml(`athreyacodes@gmail.com (${seoData.author})`)}</managingEditor>
+    <webMaster>${escapeXml(`athreyacodes@gmail.com (${seoData.author})`)}</webMaster>
+    <image>
+      <url>${escapeXml(`${siteUrl}${seoData.home.ogImage}`)}</url>
+      <title>${escapeXml(seoData.siteName)}</title>
+      <link>${escapeXml(`${siteUrl}/`)}</link>
+    </image>
+${items}
+  </channel>
+</rss>
+`;
+}
+
+function llmsTxt(posts) {
+  const notes = posts
+    .map((post) => `- [${post.title}](${siteUrl}/${post.slug}): ${post.description}`)
+    .join('\n');
+
+  return `# How
+
+> Notes from Athreya M R on how he builds software.
+
+The site is a static blog at ${siteUrl}. Each note is one decision explained the way you would tell a teammate — Angular, architecture, and the tools around them.
+
+## Notes
+
+${notes}
+
+## Optional
+
+- [RSS](${siteUrl}${seoData.rssPath})
+- [Sitemap](${siteUrl}/sitemap.xml)
+- [Author](${seoData.authorUrl})
 `;
 }
 
@@ -331,5 +449,7 @@ await writeFile(
 );
 await writeFile(join(generatedDir, 'bodies.json'), `${JSON.stringify(bodies)}\n`);
 await writeFile(join(root, 'public/sitemap.xml'), sitemapXml(listing));
+await writeFile(join(root, 'public/rss.xml'), rssXml(listing));
+await writeFile(join(root, 'public/llms.txt'), llmsTxt(listing));
 
 console.log(`content: ${posts.length} post(s)${includeDrafts ? ' (drafts included)' : ''}`);

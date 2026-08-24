@@ -1,147 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://how.athreya.codes/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Here’s how — technical writing by Athreya M R</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/mcp-in-front-of-the-api-repo</loc>
     <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>MCP belongs in front of the APIs you already have</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/remotes-still-need-a-route</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Remotes still need a route</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/affected-is-the-ci</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Affected is the CI</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/teachers-and-donors-are-not-the-same-user</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Teachers and donors are not the same user</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/go-after-years-of-node</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Go after years of Node</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/share-the-tokens-not-the-components</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Share the tokens, not the components</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/the-email-template-is-a-contract</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>The email template is a contract</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/tags-are-the-build-graph</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Tags are the build graph</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/photos-of-children-are-not-uploads</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Photos of children are not “just uploads”</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/small-go-clis</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Small Go CLIs still earn their keep</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/a-shell-is-not-a-folder</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>A shell is not a folder</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/html-email-is-still-tables</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>HTML email is still tables</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/one-repo-for-several-products</loc>
     <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>One repo when you ship several products</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/the-html-the-crawler-gets</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>The HTML the crawler actually gets</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/metadata-belongs-in-the-resolver</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Metadata belongs in the resolver, not ngOnInit</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/angular-22-prerender</loc>
     <lastmod>2026-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Angular 22 prerender without the ceremony</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/zoneless-means-you-meant-it</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Zoneless means you meant the update</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/inject-is-the-constructor</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>inject() is the constructor now</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/inputs-that-are-already-signals</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Inputs that are already signals</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/the-filter-is-a-signal</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>The filter is a signal, not a field you remember to update</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/stop-star-ngif-on-a-live-list</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Stop putting *ngIf on a live list</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/migrate-in-this-order</loc>
     <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>Migrate in this order or you will migrate twice</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://how.athreya.codes/the-version-bump-is-not-the-migration</loc>
     <lastmod>2026-01-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://how.athreya.codes/images/og-card.jpg</image:loc>
+      <image:title>The version bump is not the migration</image:title>
+    </image:image>
   </url>
 </urlset>

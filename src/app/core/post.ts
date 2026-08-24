@@ -39,6 +39,8 @@ export interface Post {
   tags: Tag[];
   image: string | null;
   banner: string;
+  seoImage: string;
+  wordCount: number;
   draft: boolean;
 }
 
