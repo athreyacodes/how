@@ -1,5 +1,6 @@
 ---
 title: Angular 22 prerender without the ceremony
+tagline: So search engines see the page, not a shell.
 description: How to ship crawlable Angular pages with outputMode static, a resolver for metadata, and no CMS.
 date: "2026-08-24"
 type: angular

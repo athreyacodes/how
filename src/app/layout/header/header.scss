@@ -49,9 +49,22 @@
 }
 
 :host.is-home .site-header {
-  align-items: flex-end;
+  align-items: flex-start;
   min-height: 0;
-  padding: 1.1rem 0 0.35rem;
+  padding: 1.1rem 0 0;
+}
+
+.brand {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+}
+
+.lede {
+  margin: 0 0 0 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .wordmark--expand {

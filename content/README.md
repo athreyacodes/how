@@ -8,6 +8,7 @@
 
 ```yaml
 title: Short, specific title
+tagline: One line under the title on the card.
 description: One sentence for search and social cards.
 date: "2026-08-24"
 updated: "2026-08-24"   # optional

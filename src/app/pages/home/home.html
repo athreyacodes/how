@@ -5,8 +5,7 @@
         These started as notes to myself —
         <strong>a decade of front-end work will do that</strong>. You solve something
         carefully, then six months later you cannot remember the
-        <strong>careful part</strong>, only that it shipped. So I write them down as I
-        go — Front-end, Angular, architecture, the tools around them — until they
+        <strong>careful part</strong>. So I write them down as I go until they
         sounded like <strong>notes I would have sent a teammate</strong>.
       </p>
     </blockquote>
@@ -44,23 +43,16 @@
     <p class="empty">No notes match those filters.</p>
   } @else {
     <ul class="feed">
-      @for (post of list(); track post.slug; let first = $first) {
+      @for (post of list(); track post.slug) {
         <li>
           <a class="card" [routerLink]="['/', post.slug]">
-            <img
-              class="card-banner"
-              [ngSrc]="post.banner"
-              width="1200"
-              height="630"
-              alt=""
-              [priority]="first"
-            />
-            <div class="card-body">
-              <p class="meta">
-                <span>{{ typeLabel(post.type) }}</span>
-                <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM yyyy' }}</time>
-              </p>
+            <div class="card-top">
+              <p class="meta">{{ typeLabel(post.type) }}</p>
               <h2>{{ post.title }}</h2>
+              <p class="tagline">{{ post.tagline }}</p>
+            </div>
+            <div class="card-body">
+              <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM yyyy' }}</time>
               <p class="summary">{{ post.description }}</p>
               @if (post.tags.length) {
                 <p class="tag-row">

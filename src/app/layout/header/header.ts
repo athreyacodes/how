@@ -9,11 +9,14 @@ import { filter, map, startWith } from 'rxjs';
   template: `
     <header class="site-header">
       @if (isHome()) {
-        <h1 class="wordmark-heading">
-          <a routerLink="/" class="wordmark wordmark--home">
-            <span class="wordmark-thin">Here’s </span><span class="wordmark-strong">How!</span>
-          </a>
-        </h1>
+        <div class="brand">
+          <h1 class="wordmark-heading">
+            <a routerLink="/" class="wordmark wordmark--home">
+              <span class="wordmark-thin">Here’s </span><span class="wordmark-strong">How!</span>
+            </a>
+          </h1>
+          <p class="lede">Essential ways of building reliable software</p>
+        </div>
       } @else {
         <a routerLink="/" class="wordmark wordmark--expand" aria-label="Here’s How!">
           <span class="wordmark-bits" aria-hidden="true"

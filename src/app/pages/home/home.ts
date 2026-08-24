@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { DatePipe, NgOptimizedImage } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { POST_TYPES, type PostType } from '../../core/post';
@@ -8,7 +8,7 @@ import seoData from '../../data/seo.json';
 
 @Component({
   selector: 'app-home',
-  imports: [DatePipe, NgOptimizedImage, RouterLink],
+  imports: [DatePipe, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -4,7 +4,7 @@ description: How a tiny Go command stays honest — flags, exit codes, and tests
 date: "2026-08-18"
 type: go
 tags: [cli, testing]
-draft: false
+draft: true
 ---
 
 Not every tool needs a framework. A Go command that does one job, fails loudly, and has a table test will outlive a generated scaffold.

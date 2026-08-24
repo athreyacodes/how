@@ -14,6 +14,7 @@ export const POST_TYPE_LABELS: Record<PostType, string> = {
 export interface Post {
   slug: string;
   title: string;
+  tagline: string;
   description: string;
   date: string;
   updated: string;

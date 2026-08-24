@@ -162,6 +162,11 @@ async function loadPosts() {
       fail(`${slug}: description is required`);
     }
 
+    const tagline =
+      typeof data.tagline === 'string' && data.tagline.trim()
+        ? data.tagline.trim()
+        : data.description.trim();
+
     const date = toDate(data.date, slug, 'date');
     const updated = data.updated == null ? date : toDate(data.updated, slug, 'updated');
 
@@ -185,6 +190,7 @@ async function loadPosts() {
     posts.push({
       slug,
       title: data.title.trim(),
+      tagline,
       description: data.description.trim(),
       date,
       updated,
