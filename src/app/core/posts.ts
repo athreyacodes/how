@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import generated from '../generated/posts.json';
-import { POST_TYPES, POST_TYPE_LABELS, type Post, type PostType, type PostsFile } from './post';
+import { TAGS, TAG_LABELS, type Post, type PostsFile, type Tag } from './post';
 
 const data = generated as PostsFile;
 
@@ -13,12 +13,16 @@ export class Posts {
     return this.all.find((post) => post.slug === slug);
   }
 
-  types(): readonly PostType[] {
-    return POST_TYPES;
+  tags(): readonly Tag[] {
+    return TAGS;
   }
 
-  typeLabel(type: PostType): string {
-    return POST_TYPE_LABELS[type];
+  tagLabel(tag: Tag): string {
+    return TAG_LABELS[tag];
+  }
+
+  extraTags(post: Post): readonly Tag[] {
+    return post.tags.filter((tag) => tag !== post.mainTag);
   }
 
   newestUpdated(): string | undefined {

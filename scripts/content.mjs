@@ -9,7 +9,7 @@ import { marked } from 'marked';
 
 import seoData from '../src/app/data/seo.json' with { type: 'json' };
 
-const TYPES = ['angular', 'mcp', 'ai', 'frontend', 'node', 'go'];
+const TAGS = ['angular', 'mcp', 'ai', 'frontend', 'node', 'go'];
 const RESERVED_SLUGS = new Set(['404', 'about', 'search', 'tags']);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -94,31 +94,45 @@ marked.use({
   }
 });
 
-function defaultBanner(type) {
-  const webp = join(root, 'public/images/types', `${type}.webp`);
-  const svg = join(root, 'public/images/types', `${type}.svg`);
+function defaultBanner(tag) {
+  const webp = join(root, 'public/images/tags', `${tag}.webp`);
+  const svg = join(root, 'public/images/tags', `${tag}.svg`);
 
   if (existsSync(webp)) {
-    return `/images/types/${type}.webp`;
+    return `/images/tags/${tag}.webp`;
   }
 
   if (existsSync(svg)) {
-    return `/images/types/${type}.svg`;
+    return `/images/tags/${tag}.svg`;
   }
 
-  fail(`missing default banner for type "${type}" (public/images/types/${type}.webp or .svg)`);
+  fail(`missing default banner for tag "${tag}" (public/images/tags/${tag}.webp or .svg)`);
 }
 
-function normalizeTags(tags, slug) {
+function normalizeTags(tags, slug, mainTag) {
   if (tags == null) {
-    return [];
+    return [mainTag];
   }
 
   if (!Array.isArray(tags) || tags.some((tag) => typeof tag !== 'string' || !tag.trim())) {
     fail(`${slug}: tags must be an array of strings`);
   }
 
-  return tags.map((tag) => tag.trim());
+  const extras = [];
+
+  for (const raw of tags) {
+    const tag = raw.trim();
+
+    if (!TAGS.includes(tag)) {
+      fail(`${slug}: tag "${tag}" must be one of ${TAGS.join(', ')}`);
+    }
+
+    if (tag !== mainTag && !extras.includes(tag)) {
+      extras.push(tag);
+    }
+  }
+
+  return [mainTag, ...extras];
 }
 
 async function loadPosts() {
@@ -170,8 +184,8 @@ async function loadPosts() {
     const date = toDate(data.date, slug, 'date');
     const updated = data.updated == null ? date : toDate(data.updated, slug, 'updated');
 
-    if (!TYPES.includes(data.type)) {
-      fail(`${slug}: type must be one of ${TYPES.join(', ')}`);
+    if (!TAGS.includes(data.mainTag)) {
+      fail(`${slug}: mainTag must be one of ${TAGS.join(', ')}`);
     }
 
     if (data.image != null && (typeof data.image !== 'string' || !data.image.startsWith('/'))) {
@@ -185,7 +199,7 @@ async function loadPosts() {
     }
 
     const html = marked.parse(content.trim(), { async: false });
-    const banner = data.image || defaultBanner(data.type);
+    const banner = data.image || defaultBanner(data.mainTag);
 
     posts.push({
       slug,
@@ -194,8 +208,8 @@ async function loadPosts() {
       description: data.description.trim(),
       date,
       updated,
-      type: data.type,
-      tags: normalizeTags(data.tags, slug),
+      mainTag: data.mainTag,
+      tags: normalizeTags(data.tags, slug, data.mainTag),
       image: data.image ?? null,
       banner,
       draft,

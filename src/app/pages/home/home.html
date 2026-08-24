@@ -25,16 +25,16 @@
     </figcaption>
   </figure>
 
-  <div class="filters" role="group" aria-label="Filter by type">
-    @for (item of types; track item) {
+  <div class="filters" role="group" aria-label="Filter by tag">
+    @for (item of tags; track item) {
       <button
         type="button"
         class="chip"
-        [class.chip--on]="type() === item"
-        [attr.aria-pressed]="type() === item"
-        (click)="toggleType(item)"
+        [class.chip--on]="tag() === item"
+        [attr.aria-pressed]="tag() === item"
+        (click)="toggleTag(item)"
       >
-        {{ typeLabel(item) }}
+        {{ tagLabel(item) }}
       </button>
     }
   </div>
@@ -47,17 +47,18 @@
         <li>
           <a class="card" [routerLink]="['/', post.slug]">
             <div class="card-top">
-              <p class="meta">{{ typeLabel(post.type) }}</p>
+              <p class="meta">{{ tagLabel(post.mainTag) }}</p>
               <h2>{{ post.title }}</h2>
               <p class="tagline">{{ post.tagline }}</p>
             </div>
             <div class="card-body">
               <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM yyyy' }}</time>
               <p class="summary">{{ post.description }}</p>
-              @if (post.tags.length) {
+              @let extras = extraTags(post);
+              @if (extras.length) {
                 <p class="tag-row">
-                  @for (item of post.tags; track item) {
-                    <span>{{ item }}</span>
+                  @for (item of extras; track item) {
+                    <span>{{ tagLabel(item) }}</span>
                   }
                 </p>
               }

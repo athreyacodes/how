@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-import { POST_TYPES, type PostType } from '../../core/post';
+import { TAGS, type Post, type Tag } from '../../core/post';
 import { Posts } from '../../core/posts';
 import seoData from '../../data/seo.json';
 
@@ -17,20 +17,24 @@ export class Home {
   private readonly posts = inject(Posts);
 
   protected readonly author = seoData.author;
-  protected readonly types = POST_TYPES;
-  protected readonly type = signal<PostType | null>(null);
+  protected readonly tags = TAGS;
+  protected readonly tag = signal<Tag | null>(null);
 
   protected readonly list = computed(() => {
-    const type = this.type();
+    const tag = this.tag();
 
-    return this.posts.all.filter((post) => !type || post.type === type);
+    return this.posts.all.filter((post) => !tag || post.tags.includes(tag));
   });
 
-  protected typeLabel(type: PostType): string {
-    return this.posts.typeLabel(type);
+  protected tagLabel(tag: Tag): string {
+    return this.posts.tagLabel(tag);
   }
 
-  protected toggleType(type: PostType): void {
-    this.type.update((current) => (current === type ? null : type));
+  protected extraTags(post: Post): readonly Tag[] {
+    return this.posts.extraTags(post);
+  }
+
+  protected toggleTag(tag: Tag): void {
+    this.tag.update((current) => (current === tag ? null : tag));
   }
 }

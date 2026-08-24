@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 
-import type { Post } from '../../core/post';
+import type { Post, Tag } from '../../core/post';
 import { Posts } from '../../core/posts';
 import bodies from '../../generated/bodies.json';
 
@@ -30,8 +30,10 @@ export class PostPage {
     return this.sanitizer.bypassSecurityTrustHtml(body);
   });
 
-  protected typeLabel(): string {
-    return this.posts.typeLabel(this.post().type);
+  protected readonly extraTags = computed(() => this.posts.extraTags(this.post()));
+
+  protected tagLabel(tag: Tag = this.post().mainTag): string {
+    return this.posts.tagLabel(tag);
   }
 
   protected copyCode(event: Event): void {

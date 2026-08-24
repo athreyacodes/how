@@ -2,8 +2,7 @@
 title: Small Go CLIs still earn their keep
 description: How a tiny Go command stays honest — flags, exit codes, and tests you can run in one file.
 date: "2026-08-18"
-type: go
-tags: [cli, testing]
+mainTag: go
 draft: true
 ---
 

@@ -1,8 +1,8 @@
-export const POST_TYPES = ['angular', 'mcp', 'ai', 'frontend', 'node', 'go'] as const;
+export const TAGS = ['angular', 'mcp', 'ai', 'frontend', 'node', 'go'] as const;
 
-export type PostType = (typeof POST_TYPES)[number];
+export type Tag = (typeof TAGS)[number];
 
-export const POST_TYPE_LABELS: Record<PostType, string> = {
+export const TAG_LABELS: Record<Tag, string> = {
   angular: 'Angular',
   mcp: 'MCP',
   ai: 'AI',
@@ -18,8 +18,8 @@ export interface Post {
   description: string;
   date: string;
   updated: string;
-  type: PostType;
-  tags: string[];
+  mainTag: Tag;
+  tags: Tag[];
   image: string | null;
   banner: string;
   draft: boolean;

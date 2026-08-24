@@ -12,14 +12,15 @@ tagline: One line under the title on the card.
 description: One sentence for search and social cards.
 date: "2026-08-24"
 updated: "2026-08-24"   # optional
-type: angular         # angular | mcp | ai | frontend | node | go
-tags: [ssr, prerender]
+mainTag: angular        # angular | mcp | ai | frontend | node | go
+tags: [frontend]        # optional extras from the same list
 image: /images/posts/your-slug/banner.webp  # optional
 draft: false
 ```
 
 - **slug** is the filename. URLs are `https://how.athreya.codes/your-slug`.
-- **type** is required. If `image` is omitted, the type banner in `public/images/types/{type}.webp` (or `.svg`) is used.
+- **mainTag** is required. It is the post's primary tag and must be one of the tags above. If `image` is omitted, the banner in `public/images/tags/{mainTag}.webp` (or `.svg`) is used.
+- **tags** are extra labels from that same list. A note can be both `angular` and `frontend`. `mainTag` is always included in the generated tag list.
 - **draft: true** is skipped in production builds. `npm start` includes drafts.
 - Reserved slugs: `404`, `about`, `search`, `tags`.
 

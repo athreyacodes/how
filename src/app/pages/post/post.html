@@ -2,7 +2,7 @@
   <p class="kicker">
     <a routerLink="/">How</a>
     <span aria-hidden="true"> / </span>
-    <span>{{ typeLabel() }}</span>
+    <span>{{ tagLabel() }}</span>
   </p>
 
   <h1>{{ post().title }}</h1>
@@ -23,10 +23,11 @@
     priority
   />
 
-  @if (post().tags.length) {
+  @let extras = extraTags();
+  @if (extras.length) {
     <p class="tags">
-      @for (tag of post().tags; track tag) {
-        <span>{{ tag }}</span>
+      @for (tag of extras; track tag) {
+        <span>{{ tagLabel(tag) }}</span>
       }
     </p>
   }

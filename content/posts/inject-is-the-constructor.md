@@ -3,8 +3,8 @@ title: inject() is the constructor now
 tagline: Skip the constructor. Keep state in a signal.
 description: A standalone component can take what it needs with inject. Local UI state belongs in a signal.
 date: "2026-08-20"
-type: angular
-tags: [inject, signals]
+mainTag: angular
+tags: [frontend]
 draft: false
 ---
 
@@ -13,7 +13,7 @@ You do not need a constructor to wire a standalone component. `inject` reads the
 ```ts
 export class Home {
   private readonly posts = inject(Posts);
-  protected readonly type = signal<PostType | null>(null);
+  protected readonly tag = signal<Tag | null>(null);
 }
 ```
 
@@ -21,8 +21,8 @@ Keep UI state in a signal so the template can stay a read of current values. A `
 
 ```ts
 protected readonly list = computed(() => {
-  const type = this.type();
-  return this.posts.all.filter((post) => !type || post.type === type);
+  const tag = this.tag();
+  return this.posts.all.filter((post) => !tag || post.tags.includes(tag));
 });
 ```
 

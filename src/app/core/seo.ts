@@ -2,7 +2,7 @@ import { DOCUMENT, Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import seoData from '../data/seo.json';
-import { POST_TYPE_LABELS, type Post } from './post';
+import { TAG_LABELS, type Post } from './post';
 
 const SITE_URL = seoData.siteUrl.replace(/\/$/, '');
 const INDEX_ROBOTS = seoData.robots;
@@ -40,7 +40,7 @@ export class SeoService {
 
   applyPost(post: Post): void {
     const title = `${post.title} · How`;
-    const imageAlt = `${post.title} — ${POST_TYPE_LABELS[post.type]}`;
+    const imageAlt = `${post.title} — ${TAG_LABELS[post.mainTag]}`;
 
     this.applyTags({
       title,
@@ -54,7 +54,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'article:published_time', content: post.date });
     this.meta.updateTag({ property: 'article:modified_time', content: post.updated });
     this.meta.updateTag({ property: 'article:author', content: seoData.author });
-    this.meta.updateTag({ property: 'article:section', content: POST_TYPE_LABELS[post.type] });
+    this.meta.updateTag({ property: 'article:section', content: TAG_LABELS[post.mainTag] });
 
     this.setStructuredData(this.postGraph(post, title, imageAlt));
   }
@@ -170,8 +170,8 @@ export class SeoService {
           publisher: { '@id': personId },
           isPartOf: { '@id': `${SITE_URL}/#blog` },
           mainEntityOfPage: pageUrl,
-          keywords: post.tags.join(', '),
-          articleSection: POST_TYPE_LABELS[post.type]
+          keywords: post.tags.map((tag) => TAG_LABELS[tag]).join(', '),
+          articleSection: TAG_LABELS[post.mainTag]
         },
         {
           '@type': 'WebSite',
