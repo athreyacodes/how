@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 
 import { POST_TYPES, type PostType } from '../../core/post';
 import { Posts } from '../../core/posts';
+import seoData from '../../data/seo.json';
 
 @Component({
   selector: 'app-home',
@@ -15,26 +16,14 @@ import { Posts } from '../../core/posts';
 export class Home {
   private readonly posts = inject(Posts);
 
+  protected readonly author = seoData.author;
   protected readonly types = POST_TYPES;
-  protected readonly tags = this.posts.tags();
   protected readonly type = signal<PostType | null>(null);
-  protected readonly tag = signal<string | null>(null);
 
   protected readonly list = computed(() => {
     const type = this.type();
-    const tag = this.tag();
 
-    return this.posts.all.filter((post) => {
-      if (type && post.type !== type) {
-        return false;
-      }
-
-      if (tag && !post.tags.includes(tag)) {
-        return false;
-      }
-
-      return true;
-    });
+    return this.posts.all.filter((post) => !type || post.type === type);
   });
 
   protected typeLabel(type: PostType): string {
@@ -43,9 +32,5 @@ export class Home {
 
   protected toggleType(type: PostType): void {
     this.type.update((current) => (current === type ? null : type));
-  }
-
-  protected toggleTag(tag: string): void {
-    this.tag.update((current) => (current === tag ? null : tag));
   }
 }

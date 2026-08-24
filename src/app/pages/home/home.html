@@ -1,6 +1,30 @@
 <section class="home">
-  <h1 class="lead">How Athreya codes</h1>
-  <p class="deck">Notes on Angular, front-end architecture, MCP, Node, Go, and AI.</p>
+  <figure class="quote">
+    <blockquote>
+      <p>
+        These started as notes to myself —
+        <strong>a decade of front-end work will do that</strong>. You solve something
+        carefully, then six months later you cannot remember the
+        <strong>careful part</strong>, only that it shipped. So I write them down as I
+        go — Front-end, Angular, architecture, the tools around them — until they
+        sounded like <strong>notes I would have sent a teammate</strong>.
+      </p>
+    </blockquote>
+    <figcaption>
+      <picture>
+        <source type="image/avif" srcset="/images/dp-240.avif" />
+        <source type="image/webp" srcset="/images/dp-240.webp" />
+        <img
+          src="/images/dp-240.jpg"
+          width="40"
+          height="40"
+          alt=""
+          decoding="async"
+        />
+      </picture>
+      <cite>{{ author }}</cite>
+    </figcaption>
+  </figure>
 
   <div class="filters" role="group" aria-label="Filter by type">
     @for (item of types; track item) {
@@ -15,22 +39,6 @@
       </button>
     }
   </div>
-
-  @if (tags.length) {
-    <div class="filters" role="group" aria-label="Filter by tag">
-      @for (item of tags; track item) {
-        <button
-          type="button"
-          class="chip chip--tag"
-          [class.chip--on]="tag() === item"
-          [attr.aria-pressed]="tag() === item"
-          (click)="toggleTag(item)"
-        >
-          {{ item }}
-        </button>
-      }
-    </div>
-  }
 
   @if (list().length === 0) {
     <p class="empty">No notes match those filters.</p>

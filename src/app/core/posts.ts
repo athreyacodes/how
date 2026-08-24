@@ -21,10 +21,6 @@ export class Posts {
     return POST_TYPE_LABELS[type];
   }
 
-  tags(): readonly string[] {
-    return [...new Set(this.all.flatMap((post) => post.tags))].sort((a, b) => a.localeCompare(b));
-  }
-
   newestUpdated(): string | undefined {
     return this.all[0]?.updated;
   }

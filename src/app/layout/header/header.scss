@@ -8,19 +8,106 @@
   min-height: 3.5rem;
 }
 
+.wordmark-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 .wordmark {
   color: var(--text, #12494c);
   font-family: var(--font-montserrat), 'Montserrat', sans-serif;
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
   line-height: 1;
   text-decoration: none;
-  text-transform: uppercase;
+  white-space: nowrap;
+  font-synthesis: weight;
 }
 
 .wordmark:hover,
 .wordmark:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-decoration: none;
+}
+
+.wordmark:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.18em;
+}
+
+.wordmark--home {
+  display: inline-block;
+  font-size: clamp(2.05rem, 9vw, 5.25rem);
+  letter-spacing: 0.01em;
+}
+
+.wordmark-thin {
+  font-weight: 300;
+}
+
+.wordmark-strong {
+  font-weight: 800;
+}
+
+:host.is-home .site-header {
+  align-items: flex-end;
+  min-height: 0;
+  padding: 1.1rem 0 0.35rem;
+}
+
+.wordmark--expand {
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.wordmark-bits {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.wordmark-insert {
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  transition: max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wordmark--expand:hover .wordmark-insert,
+.wordmark--expand:focus-visible .wordmark-insert {
+  max-width: 9.5em;
+}
+
+.wordmark-punct {
+  display: inline-grid;
+  place-items: center;
+  min-width: 0.75em;
+}
+
+.wordmark-q,
+.wordmark-bang {
+  grid-area: 1 / 1;
+  transition:
+    opacity 0.28s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wordmark-bang {
+  opacity: 0;
+  transform: rotate(-65deg) scale(0.45);
+}
+
+.wordmark--expand:hover .wordmark-q,
+.wordmark--expand:focus-visible .wordmark-q {
+  opacity: 0;
+  transform: rotate(55deg) scale(0.45);
+}
+
+.wordmark--expand:hover .wordmark-bang,
+.wordmark--expand:focus-visible .wordmark-bang {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }

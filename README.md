@@ -1,6 +1,6 @@
 # How
 
-[how.athreya.codes](https://how.athreya.codes) — notes on how Athreya codes.
+[how.athreya.codes](https://how.athreya.codes) — notes on how I build.
 
 Angular 22 SSG. Notes are markdown files; the build prerenders each page.
 
@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/`. Drafts are included locally.
+Open `http://localhost:4201/`. Drafts are included locally.
 
 ## Production build
 
