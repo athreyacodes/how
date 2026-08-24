@@ -2,52 +2,31 @@ app-post {
   display: block;
 }
 
-.post {
-  max-width: 44rem;
-  margin: 0 auto;
+.note {
+  display: grid;
+  gap: 2.5rem;
   text-align: left;
 }
 
-.post .kicker,
+.post {
+  min-width: 0;
+  max-width: 42rem;
+}
+
 .post .meta,
 .post .tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem 0.85rem;
   margin: 0 0 0.85rem;
   font-size: 0.85rem;
-}
-
-.post .kicker {
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.post .kicker a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.post .kicker a:hover,
-.post .kicker a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
 }
 
 .post h1 {
   margin: 0 0 0.75rem;
   font-size: clamp(1.85rem, 5vw, 2.6rem);
   line-height: 1.15;
-}
-
-.post .banner {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 1.25rem 0 1rem;
-  border-radius: 0.75rem;
-  background: #d2dfdf;
 }
 
 .post .tags span {
@@ -137,17 +116,17 @@ app-post {
 
 .post .code-block pre {
   margin: 0;
-  padding: 0.85rem 0 1rem;
+  padding: 0.7rem 0 0.8rem;
   overflow-x: auto;
   counter-reset: line;
   font-size: 0.85rem;
-  line-height: 1.55;
+  line-height: 1.35;
 }
 
 .post .code-block__line {
   display: block;
   padding: 0 1rem 0 3.4rem;
-  min-height: 1.55em;
+  min-height: 1.35em;
   position: relative;
   white-space: pre;
 }
@@ -206,4 +185,74 @@ app-post {
 .post .hljs-builtin-name,
 .post .hljs-symbol {
   color: #9ad7ff;
+}
+
+.similar {
+  min-width: 0;
+}
+
+.similar h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.similar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.similar li {
+  display: block;
+}
+
+.similar li + li {
+  margin-top: 0.35rem;
+}
+
+.similar a {
+  display: grid;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 0;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+}
+
+.similar a:hover,
+.similar a:focus-visible {
+  background: var(--background-light, #d2dfdf);
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.similar-tag {
+  color: #156064;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.similar-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+@media (min-width: 64rem) {
+  .note {
+    grid-template-columns: minmax(0, 1fr) 15.5rem;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .similar {
+    position: sticky;
+    top: 1.25rem;
+  }
 }

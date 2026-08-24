@@ -1,36 +1,36 @@
-<article class="post" (click)="copyCode($event)">
-  <p class="kicker">
-    <a routerLink="/">How</a>
-    <span aria-hidden="true"> / </span>
-    <span>{{ tagLabel() }}</span>
-  </p>
+<div class="note">
+  <article class="post" (click)="copyCode($event)">
+    <h1>{{ post().title }}</h1>
 
-  <h1>{{ post().title }}</h1>
+    <p class="meta">
+      <time [attr.datetime]="post().date">{{ post().date | date: 'd MMMM yyyy' }}</time>
+      @if (post().updated !== post().date) {
+        <span>Updated {{ post().updated | date: 'd MMMM yyyy' }}</span>
+      }
+    </p>
 
-  <p class="meta">
-    <time [attr.datetime]="post().date">{{ post().date | date: 'd MMMM yyyy' }}</time>
-    @if (post().updated !== post().date) {
-      <span>Updated {{ post().updated | date: 'd MMMM yyyy' }}</span>
-    }
-  </p>
-
-  <img
-    class="banner"
-    [ngSrc]="post().banner"
-    width="1200"
-    height="630"
-    alt=""
-    priority
-  />
-
-  @let extras = extraTags();
-  @if (extras.length) {
     <p class="tags">
-      @for (tag of extras; track tag) {
+      @for (tag of post().tags; track tag) {
         <span>{{ tagLabel(tag) }}</span>
       }
     </p>
-  }
 
-  <div class="body" [innerHTML]="html()"></div>
-</article>
+    <div class="body" [innerHTML]="html()"></div>
+  </article>
+
+  @if (similar().length) {
+    <aside class="similar" aria-label="Similar notes">
+      <h2>Read similar notes</h2>
+      <ul>
+        @for (item of similar(); track item.slug) {
+          <li>
+            <a [routerLink]="['/', item.slug]">
+              <span class="similar-tag">{{ tagLabel(item.mainTag) }}</span>
+              <span class="similar-title">{{ item.title }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </aside>
+  }
+</div>

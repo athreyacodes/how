@@ -66,7 +66,7 @@ function wrapLines(html) {
   const lines = html.split('\n');
   return lines
     .map((line) => `<span class="code-block__line">${line.length ? line : '\n'}</span>`)
-    .join('\n');
+    .join('');
 }
 
 function renderFence(code, lang) {

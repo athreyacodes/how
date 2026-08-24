@@ -70,9 +70,8 @@
 .wordmark--expand {
   display: inline-flex;
   align-items: baseline;
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  padding: 0.2rem 0;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
 }
 
 .wordmark-bits {
@@ -80,18 +79,28 @@
   align-items: baseline;
 }
 
-.wordmark-insert {
-  display: inline-block;
-  max-width: 0;
+.wordmark-here {
+  display: inline-grid;
+  grid-template-columns: 0fr;
+  min-width: 0;
   overflow: hidden;
-  white-space: nowrap;
-  vertical-align: bottom;
-  transition: max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-columns 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.wordmark--expand:hover .wordmark-insert,
-.wordmark--expand:focus-visible .wordmark-insert {
-  max-width: 9.5em;
+.wordmark-here > span {
+  overflow: hidden;
+  min-width: 0;
+  white-space: nowrap;
+  font-weight: 300;
+}
+
+.wordmark-how {
+  font-weight: 800;
+}
+
+.wordmark--expand:hover .wordmark-here,
+.wordmark--expand:focus-visible .wordmark-here {
+  grid-template-columns: 1fr;
 }
 
 .wordmark-punct {

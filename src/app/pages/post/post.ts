@@ -1,4 +1,4 @@
-import { DatePipe, NgOptimizedImage } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, ViewEncapsulation } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -11,7 +11,7 @@ import bodies from '../../generated/bodies.json';
 
 @Component({
   selector: 'app-post',
-  imports: [DatePipe, NgOptimizedImage, RouterLink],
+  imports: [DatePipe, RouterLink],
   templateUrl: './post.html',
   styleUrl: './post.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,9 +30,9 @@ export class PostPage {
     return this.sanitizer.bypassSecurityTrustHtml(body);
   });
 
-  protected readonly extraTags = computed(() => this.posts.extraTags(this.post()));
+  protected readonly similar = computed(() => this.posts.similar(this.post()));
 
-  protected tagLabel(tag: Tag = this.post().mainTag): string {
+  protected tagLabel(tag: Tag): string {
     return this.posts.tagLabel(tag);
   }
 

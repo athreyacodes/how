@@ -21,8 +21,17 @@ export class Posts {
     return TAG_LABELS[tag];
   }
 
-  extraTags(post: Post): readonly Tag[] {
-    return post.tags.filter((tag) => tag !== post.mainTag);
+  similar(post: Post, limit = 5): readonly Post[] {
+    return this.all
+      .filter(
+        (other) =>
+          other.slug !== post.slug && other.tags.some((tag) => post.tags.includes(tag))
+      )
+      .sort((a, b) => {
+        const shared = (item: Post) => item.tags.filter((tag) => post.tags.includes(tag)).length;
+        return shared(b) - shared(a) || b.date.localeCompare(a.date);
+      })
+      .slice(0, limit);
   }
 
   newestUpdated(): string | undefined {

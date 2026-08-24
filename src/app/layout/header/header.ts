@@ -19,14 +19,14 @@ import { filter, map, startWith } from 'rxjs';
         </div>
       } @else {
         <a routerLink="/" class="wordmark wordmark--expand" aria-label="Here’s How!">
-          <span class="wordmark-bits" aria-hidden="true"
-            ><span class="wordmark-h">H</span
-            ><span class="wordmark-insert">ere’s H</span
-            ><span class="wordmark-ow">OW</span
-            ><span class="wordmark-punct"
-              ><span class="wordmark-q">?</span><span class="wordmark-bang">!</span></span
-            ></span
-          >
+          <span class="wordmark-bits" aria-hidden="true">
+            <span class="wordmark-here"><span>Here’s </span></span>
+            <span class="wordmark-how">How</span>
+            <span class="wordmark-punct">
+              <span class="wordmark-q">?</span>
+              <span class="wordmark-bang">!</span>
+            </span>
+          </span>
         </a>
       }
     </header>

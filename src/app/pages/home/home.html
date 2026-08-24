@@ -54,14 +54,11 @@
             <div class="card-body">
               <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM yyyy' }}</time>
               <p class="summary">{{ post.description }}</p>
-              @let extras = extraTags(post);
-              @if (extras.length) {
-                <p class="tag-row">
-                  @for (item of extras; track item) {
-                    <span>{{ tagLabel(item) }}</span>
-                  }
-                </p>
-              }
+              <p class="tag-row">
+                @for (item of post.tags; track item) {
+                  <span>{{ tagLabel(item) }}</span>
+                }
+              </p>
             </div>
           </a>
         </li>

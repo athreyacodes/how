@@ -19,8 +19,9 @@ draft: false
 ```
 
 - **slug** is the filename. URLs are `https://how.athreya.codes/your-slug`.
-- **mainTag** is required. It is the post's primary tag and must be one of the tags above. If `image` is omitted, the banner in `public/images/tags/{mainTag}.webp` (or `.svg`) is used.
+- **mainTag** is required. It is the post's primary tag and must be one of the tags above. If `image` is omitted, the banner in `public/images/tags/{mainTag}.webp` (or `.svg`) is used for social cards. The note page does not show that banner.
 - **tags** are extra labels from that same list. A note can be both `angular` and `frontend`. `mainTag` is always included in the generated tag list.
+- Write the body like you are talking to a teammate. Start with **Context**, then **Where this applies**, then **How**. Be generous with explanation. The full writing rules are in `.cursor/skills/write-how-note/SKILL.md`.
 - **draft: true** is skipped in production builds. `npm start` includes drafts.
 - Reserved slugs: `404`, `about`, `search`, `tags`.
 

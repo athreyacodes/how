@@ -8,7 +8,33 @@ tags: [frontend]
 draft: false
 ---
 
-You do not need a constructor to wire a standalone component. `inject` reads the token at creation time, the same as a parameter would have:
+## Context
+
+I used to open a component, write a constructor, and inject three services as parameters. It worked. It also meant a constructor that did not construct anything. It was just a wiring block.
+
+On a small standalone page, that feels heavy. The route already decided what this page is. The component only needs a couple of tokens, plus whatever the person on the page just changed.
+
+`inject` reads a token at creation time. Same moment a constructor parameter would have been filled in. You can call it in the field initializer. No constructor required.
+
+And if the thing you are holding is UI state — a selected tag, a toggle, a query string you already parsed — a signal is the honest place for it. The template can just read the current value.
+
+## Where this applies
+
+Use this on standalone components and routes that are mostly a view plus a little local state.
+
+Typical cases:
+
+- A list page with a filter chip. The filter is local. It does not belong in a store.
+- A note page that already got its post from a resolver. The component should not fetch it again in `ngOnInit`.
+- Any component where the constructor would only have assigned `this.foo = foo`.
+
+This is not a ban on constructors. If you need to run logic with several injected values before the first change detection, a constructor is still fine. I just do not start there any more.
+
+Also, `inject` has to run in an injection context. Field initializers on an `inject()`-created class are that context. A random helper function is not, unless you wrap it.
+
+## How
+
+Take what the component needs with `inject`. Keep the field private if the template does not use it.
 
 ```ts
 export class Home {
@@ -16,6 +42,8 @@ export class Home {
   protected readonly tag = signal<Tag | null>(null);
 }
 ```
+
+`posts` is data. `tag` is the filter the person clicked. Two different jobs, so two different kinds of fields.
 
 Keep UI state in a signal so the template can stay a read of current values. A `computed` list is enough when the filter is local:
 
@@ -26,4 +54,14 @@ protected readonly list = computed(() => {
 });
 ```
 
-`OnInit` is unused here. The route already resolved what the page needs; the component only holds what the user just changed.
+When `tag` is `null`, show everything. When it is `'angular'`, show notes that have that tag. The list updates because it is computed from a signal. No `OnInit`. No manual subscription.
+
+The route already resolved what the page needs. The component only holds what the user just changed.
+
+## Watch out for
+
+Do not call `inject` inside the `computed`. The computed runs later, outside the creation context. Inject once on the class, then read it inside the computed.
+
+Do not mirror the same value in a signal and a plain field. Pick one. If the template needs to react, it is a signal.
+
+And if the data comes from the router, trust the resolver. Fetching the same post again in the component is how you get a flash of empty and two sources of truth.
