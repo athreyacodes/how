@@ -21,7 +21,7 @@ export class Posts {
     return TAG_LABELS[tag];
   }
 
-  similar(post: Post, limit = 5): readonly Post[] {
+  similar(post: Post, limit = 3): readonly Post[] {
     return this.all
       .filter(
         (other) =>
@@ -32,6 +32,10 @@ export class Posts {
         return shared(b) - shared(a) || b.date.localeCompare(a.date);
       })
       .slice(0, limit);
+  }
+
+  recent(post: Post, limit = 3): readonly Post[] {
+    return this.all.filter((other) => other.slug !== post.slug).slice(0, limit);
   }
 
   newestUpdated(): string | undefined {

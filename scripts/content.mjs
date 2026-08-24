@@ -97,14 +97,67 @@ function renderFence(code, lang) {
   ].join('');
 }
 
+function headingId(text) {
+  const plain = String(text)
+    .replace(/\*+/g, '')
+    .replace(/<[^>]+>/g, '')
+    .trim()
+    .toLowerCase();
+
+  if (plain.startsWith('what')) {
+    return 'what';
+  }
+
+  if (plain.startsWith('when')) {
+    return 'when';
+  }
+
+  if (plain.startsWith('how')) {
+    return 'how';
+  }
+
+  if (plain.startsWith('watch')) {
+    return 'watch-out-for';
+  }
+
+  return plain.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 marked.use({
   gfm: true,
   renderer: {
     code({ text, lang }) {
       return renderFence(text, lang);
+    },
+    heading({ text, tokens, depth }) {
+      const html = this.parser.parseInline(tokens);
+      const id = depth === 2 ? headingId(text) : '';
+
+      if (id) {
+        return `<h${depth} id="${escapeHtml(id)}">${html}</h${depth}>\n`;
+      }
+
+      return `<h${depth}>${html}</h${depth}>\n`;
     }
   }
 });
+
+function wrapPostSections(html) {
+  return html
+    .split(/(?=<h2\b)/i)
+    .map((chunk) => {
+      const match = chunk.match(/^<h2\s+id="([^"]+)"/i);
+
+      if (!match) {
+        return chunk;
+      }
+
+      const id = match[1];
+      const inner = chunk.replace(/^<h2\s+id="[^"]+"/, '<h2');
+      return `<section id="${escapeHtml(id)}" class="post-section">${inner}</section>`;
+    })
+    .join('');
+}
 
 function defaultBanner(tag) {
   const webp = join(root, 'public/images/tags', `${tag}.webp`);
@@ -210,7 +263,7 @@ async function loadPosts() {
       continue;
     }
 
-    const html = marked.parse(content.trim(), { async: false });
+    const html = wrapPostSections(marked.parse(content.trim(), { async: false }));
     const banner = data.image || defaultBanner(data.mainTag);
 
     posts.push({
