@@ -29,7 +29,7 @@
     }
   },
   "projects": {
-    "blogs": {
+    "how": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -60,7 +60,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/blogs",
+            "outputPath": "dist/how",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "server": "src/main.server.ts",
@@ -111,10 +111,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "blogs:build:production"
+              "buildTarget": "how:build:production"
             },
             "development": {
-              "buildTarget": "blogs:build:development"
+              "buildTarget": "how:build:development"
             }
           },
           "defaultConfiguration": "development"

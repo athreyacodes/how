@@ -1,21 +1,21 @@
 {
-  "siteUrl": "https://blogs-99980.web.app",
-  "siteName": "Blogs",
-  "dateModified": "2026-08-23",
+  "siteUrl": "https://how.athreya.codes",
+  "siteName": "How Athreya codes",
+  "dateModified": "2026-08-24",
   "home": {
-    "title": "Blogs",
-    "description": "Technical writing on front-end architecture, Angular, and web performance.",
+    "title": "How Athreya codes",
+    "description": "How Athreya codes — notes on Angular, front-end architecture, MCP, Node, Go, and AI.",
     "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-    "ogTitle": "Blogs",
-    "ogDescription": "Technical writing on front-end architecture, Angular, and web performance.",
+    "ogTitle": "How Athreya codes",
+    "ogDescription": "How Athreya codes — notes on Angular, front-end architecture, MCP, Node, Go, and AI.",
     "ogImage": "/images/og-card.jpg",
     "ogImageWidth": 1200,
     "ogImageHeight": 630,
     "ogType": "website",
-    "imageAlt": "Blogs — technical writing by Athreya M R",
+    "imageAlt": "How Athreya codes — technical writing by Athreya M R",
     "twitterCard": "summary_large_image",
-    "twitterTitle": "Blogs",
-    "twitterDescription": "Technical writing on front-end architecture, Angular, and web performance.",
+    "twitterTitle": "How Athreya codes",
+    "twitterDescription": "How Athreya codes — notes on Angular, front-end architecture, MCP, Node, Go, and AI.",
     "twitterImage": "/images/og-card.jpg"
   }
 }

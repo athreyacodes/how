@@ -1,9 +1,13 @@
 {
   "hosting": {
-    "public": "dist/blogs/browser",
+    "public": "dist/how/browser",
     "cleanUrls": true,
     "trailingSlash": false,
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "headers": [
       {
         "source": "**/*.@(js|css|woff2|avif|webp|jpg|jpeg|png|svg|ico|ttf)",

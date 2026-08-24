@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const browser = resolve(root, 'dist/blogs/browser');
+const browser = resolve(root, 'dist/how/browser');
 const preview = process.env.PREVIEW === '1';
 
 /**
