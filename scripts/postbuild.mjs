@@ -1,4 +1,5 @@
 import { copyFile, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -13,6 +14,15 @@ const preview = process.env.PREVIEW === '1';
  */
 await rm(resolve(browser, 'index.csr.html'), { force: true });
 console.log('postbuild: removed index.csr.html');
+
+const notFound = ['404.html', '404/index.html']
+  .map((path) => resolve(browser, path))
+  .find((path) => existsSync(path));
+
+if (notFound && notFound !== resolve(browser, '404.html')) {
+  await copyFile(notFound, resolve(browser, '404.html'));
+  console.log('postbuild: copied 404.html for Firebase');
+}
 
 /**
  * Firebase preview channels share this build. Mark them noindex so they cannot

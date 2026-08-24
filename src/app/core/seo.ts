@@ -2,8 +2,20 @@ import { DOCUMENT, Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import seoData from '../data/seo.json';
+import { POST_TYPE_LABELS, type Post } from './post';
 
 const SITE_URL = seoData.siteUrl.replace(/\/$/, '');
+const INDEX_ROBOTS = seoData.robots;
+
+export type PageSeo = {
+  title: string;
+  description: string;
+  path: string;
+  robots?: string;
+  ogType?: string;
+  ogImage?: string;
+  imageAlt?: string;
+};
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -11,43 +23,98 @@ export class SeoService {
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
 
-  apply(): void {
+  applyHome(dateModified?: string): void {
     const config = seoData.home;
-    const pageUrl = this.absolute('/');
 
-    this.title.setTitle(config.title);
+    this.applyTags({
+      title: config.title,
+      description: config.description,
+      path: '/',
+      ogType: config.ogType,
+      ogImage: config.ogImage,
+      imageAlt: config.imageAlt
+    });
 
-    this.meta.updateTag({ name: 'description', content: config.description });
-    this.meta.updateTag({ name: 'robots', content: config.robots });
-    this.meta.updateTag({ name: 'author', content: 'Athreya M R' });
+    this.setStructuredData(this.homeGraph(dateModified ?? seoData.dateModified));
+  }
+
+  applyPost(post: Post): void {
+    const title = `${post.title} · How`;
+    const imageAlt = `${post.title} — ${POST_TYPE_LABELS[post.type]}`;
+
+    this.applyTags({
+      title,
+      description: post.description,
+      path: `/${post.slug}`,
+      ogType: 'article',
+      ogImage: post.banner,
+      imageAlt
+    });
+
+    this.meta.updateTag({ property: 'article:published_time', content: post.date });
+    this.meta.updateTag({ property: 'article:modified_time', content: post.updated });
+    this.meta.updateTag({ property: 'article:author', content: seoData.author });
+    this.meta.updateTag({ property: 'article:section', content: POST_TYPE_LABELS[post.type] });
+
+    this.setStructuredData(this.postGraph(post, title, imageAlt));
+  }
+
+  applyNotFound(): void {
+    const config = seoData.notFound;
+
+    this.applyTags({
+      title: config.title,
+      description: config.description,
+      path: '/404',
+      robots: config.robots,
+      ogType: config.ogType,
+      ogImage: config.ogImage,
+      imageAlt: config.imageAlt
+    });
+
+    this.setStructuredData(null);
+  }
+
+  private applyTags(page: PageSeo): void {
+    const pageUrl = this.absolute(page.path);
+    const image = this.absolute(page.ogImage ?? seoData.home.ogImage);
+    const imageAlt = page.imageAlt ?? seoData.home.imageAlt;
+    const robots = page.robots ?? INDEX_ROBOTS;
+
+    this.title.setTitle(page.title);
+
+    this.meta.updateTag({ name: 'description', content: page.description });
+    this.meta.updateTag({ name: 'robots', content: robots });
+    this.meta.updateTag({ name: 'author', content: seoData.author });
 
     this.meta.updateTag({ property: 'og:site_name', content: seoData.siteName });
-    this.meta.updateTag({ property: 'og:title', content: config.ogTitle });
-    this.meta.updateTag({ property: 'og:description', content: config.ogDescription });
-    this.meta.updateTag({ property: 'og:image', content: this.absolute(config.ogImage) });
-    this.meta.updateTag({ property: 'og:image:width', content: String(config.ogImageWidth) });
-    this.meta.updateTag({ property: 'og:image:height', content: String(config.ogImageHeight) });
-    this.meta.updateTag({ property: 'og:image:alt', content: config.imageAlt });
-    this.meta.updateTag({ property: 'og:type', content: config.ogType });
+    this.meta.updateTag({ property: 'og:title', content: page.title });
+    this.meta.updateTag({ property: 'og:description', content: page.description });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ property: 'og:image:width', content: String(seoData.ogImageWidth) });
+    this.meta.updateTag({ property: 'og:image:height', content: String(seoData.ogImageHeight) });
+    this.meta.updateTag({ property: 'og:image:alt', content: imageAlt });
+    this.meta.updateTag({ property: 'og:type', content: page.ogType ?? 'website' });
     this.meta.updateTag({ property: 'og:url', content: pageUrl });
     this.meta.updateTag({ property: 'og:locale', content: 'en_GB' });
 
-    this.meta.updateTag({ name: 'twitter:card', content: config.twitterCard });
-    this.meta.updateTag({ name: 'twitter:title', content: config.twitterTitle });
-    this.meta.updateTag({ name: 'twitter:description', content: config.twitterDescription });
-    this.meta.updateTag({ name: 'twitter:image', content: this.absolute(config.twitterImage) });
-    this.meta.updateTag({ name: 'twitter:image:alt', content: config.imageAlt });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: page.title });
+    this.meta.updateTag({ name: 'twitter:description', content: page.description });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
+    this.meta.updateTag({ name: 'twitter:image:alt', content: imageAlt });
 
     this.setCanonical(pageUrl);
-    this.setStructuredData();
   }
 
-  private setStructuredData(): void {
+  private homeGraph(dateModified: string): Record<string, unknown> {
     const websiteId = `${SITE_URL}/#website`;
+    const personId = `${SITE_URL}/#person`;
 
-    const graph = {
+    return {
       '@context': 'https://schema.org',
       '@graph': [
+        this.personNode(personId),
         {
           '@type': 'WebSite',
           '@id': websiteId,
@@ -55,11 +122,7 @@ export class SeoService {
           description: seoData.home.ogDescription,
           url: `${SITE_URL}/`,
           inLanguage: 'en-GB',
-          publisher: {
-            '@type': 'Person',
-            name: 'Athreya M R',
-            url: 'https://athreya.codes/'
-          }
+          publisher: { '@id': personId }
         },
         {
           '@type': 'Blog',
@@ -69,18 +132,76 @@ export class SeoService {
           url: `${SITE_URL}/`,
           isPartOf: { '@id': websiteId },
           inLanguage: 'en-GB',
-          dateModified: seoData.dateModified
+          dateModified,
+          author: { '@id': personId }
         }
       ]
     };
-
-    this.upsertJsonLd('graph', graph);
   }
 
-  private upsertJsonLd(key: string, schema: Record<string, unknown>): void {
-    const selector = `script[type="application/ld+json"][data-seo="${key}"]`;
-    const payload = JSON.stringify(schema);
+  private postGraph(post: Post, title: string, imageAlt: string): Record<string, unknown> {
+    const websiteId = `${SITE_URL}/#website`;
+    const personId = `${SITE_URL}/#person`;
+    const pageUrl = this.absolute(`/${post.slug}`);
+    const image = this.absolute(post.banner);
+
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [
+        this.personNode(personId),
+        {
+          '@type': 'BlogPosting',
+          '@id': `${pageUrl}#post`,
+          headline: post.title,
+          name: title,
+          description: post.description,
+          url: pageUrl,
+          image: {
+            '@type': 'ImageObject',
+            url: image,
+            width: seoData.ogImageWidth,
+            height: seoData.ogImageHeight,
+            caption: imageAlt
+          },
+          datePublished: post.date,
+          dateModified: post.updated,
+          inLanguage: 'en-GB',
+          author: { '@id': personId },
+          publisher: { '@id': personId },
+          isPartOf: { '@id': `${SITE_URL}/#blog` },
+          mainEntityOfPage: pageUrl,
+          keywords: post.tags.join(', '),
+          articleSection: POST_TYPE_LABELS[post.type]
+        },
+        {
+          '@type': 'WebSite',
+          '@id': websiteId,
+          name: seoData.siteName,
+          url: `${SITE_URL}/`
+        }
+      ]
+    };
+  }
+
+  private personNode(personId: string): Record<string, unknown> {
+    return {
+      '@type': 'Person',
+      '@id': personId,
+      name: seoData.author,
+      url: seoData.authorUrl
+    };
+  }
+
+  private setStructuredData(schema: Record<string, unknown> | null): void {
+    const selector = 'script[type="application/ld+json"][data-seo="graph"]';
     const existing = this.document.head.querySelector<HTMLScriptElement>(selector);
+
+    if (!schema) {
+      existing?.remove();
+      return;
+    }
+
+    const payload = JSON.stringify(schema);
 
     if (existing) {
       existing.textContent = payload;
@@ -89,7 +210,7 @@ export class SeoService {
 
     const script = this.document.createElement('script');
     script.type = 'application/ld+json';
-    script.setAttribute('data-seo', key);
+    script.setAttribute('data-seo', 'graph');
     script.textContent = payload;
     this.document.head.appendChild(script);
   }

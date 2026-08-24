@@ -1,0 +1,70 @@
+<section class="home">
+  <h1 class="lead">How Athreya codes</h1>
+  <p class="deck">Notes on Angular, front-end architecture, MCP, Node, Go, and AI.</p>
+
+  <div class="filters" role="group" aria-label="Filter by type">
+    @for (item of types; track item) {
+      <button
+        type="button"
+        class="chip"
+        [class.chip--on]="type() === item"
+        [attr.aria-pressed]="type() === item"
+        (click)="toggleType(item)"
+      >
+        {{ typeLabel(item) }}
+      </button>
+    }
+  </div>
+
+  @if (tags.length) {
+    <div class="filters" role="group" aria-label="Filter by tag">
+      @for (item of tags; track item) {
+        <button
+          type="button"
+          class="chip chip--tag"
+          [class.chip--on]="tag() === item"
+          [attr.aria-pressed]="tag() === item"
+          (click)="toggleTag(item)"
+        >
+          {{ item }}
+        </button>
+      }
+    </div>
+  }
+
+  @if (list().length === 0) {
+    <p class="empty">No notes match those filters.</p>
+  } @else {
+    <ul class="feed">
+      @for (post of list(); track post.slug; let first = $first) {
+        <li>
+          <a class="card" [routerLink]="['/', post.slug]">
+            <img
+              class="card-banner"
+              [ngSrc]="post.banner"
+              width="1200"
+              height="630"
+              alt=""
+              [priority]="first"
+            />
+            <div class="card-body">
+              <p class="meta">
+                <span>{{ typeLabel(post.type) }}</span>
+                <time [attr.datetime]="post.date">{{ post.date | date: 'd MMM yyyy' }}</time>
+              </p>
+              <h2>{{ post.title }}</h2>
+              <p class="summary">{{ post.description }}</p>
+              @if (post.tags.length) {
+                <p class="tag-row">
+                  @for (item of post.tags; track item) {
+                    <span>{{ item }}</span>
+                  }
+                </p>
+              }
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+</section>

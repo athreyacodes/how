@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+}
+
+.wordmark {
+  color: var(--text, #12494c);
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.wordmark:hover,
+.wordmark:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "prebuild": "node scripts/content.mjs",
+    "prebuild:dev": "node scripts/content.mjs --drafts",
+    "start": "npm run prebuild:dev && ng serve",
+    "build": "npm run prebuild && ng build",
     "postbuild": "node scripts/postbuild.mjs",
-    "watch": "ng build --watch --configuration development",
+    "watch": "npm run prebuild:dev && ng build --watch --configuration development",
     "deploy": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
@@ -28,6 +30,9 @@
     "@angular/compiler-cli": "^22.1.0",
     "@types/node": "^22.10.0",
     "firebase-tools": "^14.0.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.12",
     "typescript": "~6.0.3"
   }
 }
