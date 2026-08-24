@@ -5,11 +5,13 @@ description: Write and revise notes for the How blog (how.athreya.codes). Use wh
 
 # Write a How note
 
-Notes live in `content/posts/{slug}.md`. After writing, run `node scripts/content.mjs --drafts` (dev) so the app picks them up.
+Notes live in `content/posts/{slug}.md`. After writing, run `node scripts/content.mjs --drafts` so local `npm start` picks them up.
+
+A note is one decision you would explain to a teammate. Not a topic survey. Not a docs page.
 
 ## Voice
 
-Write like a person talking to a teammate. Short sentences. Plain words. Contractions are fine. Do not sound like a docs site or a conference talk.
+Write like a person talking to a teammate. Short sentences. Plain words. Contractions are fine.
 
 Bad: "This approach facilitates crawlable delivery of prerendered artifacts."
 Good: "The crawler should get the real page, not an empty shell."
@@ -18,14 +20,33 @@ Be generous with explanation. Do not compress a note into a few dense paragraphs
 
 ## Shape
 
-Use these headings, in this order. You can add more after them if the note needs it. Do not skip the first two.
+Use these headings, in this order, with this wording. You can add more after them if the note needs it. Do not skip the first three.
 
-1. **Context** — What were you stuck on? What does the reader already have in front of them?
-2. **Where this applies** — Concrete situations. "You want X, and you do not have Y." Not a generic audience list.
-3. **How** — The actual walkthrough. Show the code. Say what each bit is doing, in spoken English.
-4. Optional: **Watch out for** — Only if there is a real trap.
+```md
+## **What** was the situation
+## **When** does this apply
+## **How** is it done
+## Watch out for
+```
 
-Keep the title specific. Keep `tagline` one spoken line. Keep `description` one sentence for search cards.
+1. **What** was the situation — What was in front of you and what was stuck. A short scene from a real kind of project, not a tutorial intro.
+2. **When** does this apply — Two to four concrete cases, plus one skip. Not an audience list.
+3. **How** is it done — The doing. Fenced code, then what to notice, in spoken English. Generous with why.
+4. **Watch out for** — Real failure modes only. Omit the heading if there is none. Never invent a filler trap.
+
+Keep the title specific and spoken. Keep `tagline` one spoken line. Keep `description` one sentence for search cards.
+
+## Grounding
+
+Use Athreya’s public work shapes:
+
+- Email-security platform at Mimecast (Angular, micro frontends, Nx monorepo)
+- Workflow / email product at Enate (micro frontends, email services)
+- This SSG site and the portfolio
+- Personal CLIs and side projects
+- NGO child-education tools are a side project, not a CV employer
+
+Name Enate and Mimecast the way the CV does. Do not invent internal repo names, real API paths, or threat-engine internals. Do not pull in other CV employers. A second idea is another note.
 
 ## Frontmatter
 
@@ -34,15 +55,15 @@ title: Short, specific title
 tagline: One spoken line for the card.
 description: One sentence for search and social cards.
 date: "2026-08-24"
-updated: "2026-08-24"   # optional
-mainTag: angular        # angular | mcp | ai | frontend | node | go
+updated: "2026-08-24"   # optional; defaults to date
+mainTag: angular        # angular | javascript | frontend | node | go | backend | mcp | ai
 tags: [frontend]        # extras from that same list only
-image: /images/posts/your-slug/banner.webp  # optional, not shown on the note page
 draft: false
 ```
 
-- `slug` is the filename. Lowercase kebab-case.
-- `mainTag` is required. Extra `tags` must come from the same list. A note can be both `angular` and `frontend`.
+- `slug` is the filename. Lowercase kebab-case. URLs are `https://how.athreya.codes/{slug}`.
+- `mainTag` is required. Extra `tags` must come from the same list. Typical pairs: `angular` + `frontend`, `javascript` + `frontend`, `node` + `backend`, `go` + `backend`, `mcp` + `ai`.
+- If you change the tag list, update `src/app/core/post.ts` and `scripts/content.mjs` together. Chip order on home is `angular, javascript, frontend, node, go, backend, mcp, ai`.
 - `draft: true` stays off production. Local `npm start` still shows it.
 - Reserved slugs: `404`, `about`, `search`, `tags`.
 
@@ -53,11 +74,7 @@ Do not invent a second tag vocabulary. No freeform tags like `ssr` or `signals`.
 - Prefer one idea per note. If you need a second idea, that is another note.
 - Put code in fences with a language tag. The build adds the label, line numbers, and copy button.
 - After a code block, say what to notice. Do not leave the snippet to explain itself.
-- Inline images belong in `public/images/posts/{slug}/` and in the markdown body. There is no banner under the date on the note page.
-
-```md
-![Alt text](/images/posts/your-slug/diagram.webp)
-```
+- Do not add images or tag banners unless the user asks.
 
 ## Do not
 

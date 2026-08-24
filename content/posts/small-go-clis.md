@@ -1,12 +1,14 @@
 ---
 title: Small Go CLIs still earn their keep
+tagline: One binary, flags, and an honest exit code.
 description: How a tiny Go command stays honest — flags, exit codes, and tests you can run in one file.
-date: "2026-08-18"
+date: "2026-04-03"
 mainTag: go
-draft: true
+tags: [backend]
+draft: false
 ---
 
-## Context
+## **What** was the situation
 
 I reach for Go when I want a command I can ship as one binary and forget about. No runtime to install. No framework to upgrade next month. Flags, a bit of logic, a non-zero exit when the input is wrong.
 
@@ -14,11 +16,9 @@ A lot of tools start as a generated scaffold. That is fine until the scaffold is
 
 This is the same bias as How itself. Markdown in, static HTML out, no extra runtime. The CLI version of that idea is a small Go command.
 
-## Where this applies
+## **When** does this apply
 
 Use this when the job is a pipe in a larger flow. Someone will type it, or a script will call it, and it should either print a result or fail out loud.
-
-Typical cases:
 
 - A rename, a lint, a codegen, a check against a folder of files.
 - Something you want on a machine that does not have Node or Python set up.
@@ -28,7 +28,7 @@ Skip this when you are building a long-running service, or a UI, or something th
 
 If you can describe the tool in one sentence, and the output is text, start with Go and `flag`.
 
-## How
+## **How** is it done
 
 Start with `flag` and a non-zero exit on bad input. Exit code `2` is a decent "you used this wrong" signal. `1` can stay for "it ran, then failed".
 

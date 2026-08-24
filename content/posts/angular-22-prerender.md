@@ -2,28 +2,26 @@
 title: Angular 22 prerender without the ceremony
 tagline: So search engines see the page, not a shell.
 description: How to ship crawlable Angular pages with outputMode static, a resolver for metadata, and no CMS.
-date: "2026-08-24"
+date: "2026-02-20"
 mainTag: angular
 tags: [frontend]
 image: /images/posts/angular-22-prerender/banner.svg
 draft: false
 ---
 
-## Context
+## **What** was the situation
 
-I kept writing Angular pages the way I write apps: the route loads, JavaScript runs, then the content shows up. That is fine for a logged-in tool. It is a bad deal for a public note.
+I kept writing Angular pages the way I write apps: the route loads, JavaScript runs, then the content shows up. That is fine for a logged-in tool at Mimecast. It is a bad deal for a public note.
 
 Search engines and social crawlers are impatient. A lot of them will take the first HTML they get. If that HTML is an empty shell, they think the page is empty. You can fight that with extra crawler setup. Or you can just give them the page.
 
 Angular 22 can prerender at build time. The route still looks like a normal standalone component. You do not need a CMS. You do not need a server sitting around to render each visit.
 
-This site is that setup. Markdown in. Static HTML out.
+This site is that setup. Markdown in. Static HTML out. The portfolio is the same idea.
 
-## Where this applies
+## **When** does this apply
 
 Use this when the page is public, the content is known at build time, and you care that Google, Slack, and iMessage see a real title and a real body.
-
-Typical cases:
 
 - A blog, a docs site, a marketing page, a portfolio.
 - A route like `/:slug` where the slug list is finite. You can list every page when you build.
@@ -33,7 +31,7 @@ Skip this when the page is different for every user, or the data shows up only a
 
 If you are not sure: if you could write the page in a markdown file, you can prerender it.
 
-## How
+## **How** is it done
 
 Keep metadata in a resolver. The tags have to exist in the static file, not only after JavaScript runs. A resolver runs while the route is resolving, so the prerendered HTML already has the title, description, and social tags.
 

@@ -9,7 +9,7 @@ import { marked } from 'marked';
 
 import seoData from '../src/app/data/seo.json' with { type: 'json' };
 
-const TAGS = ['angular', 'mcp', 'ai', 'frontend', 'node', 'go'];
+const TAGS = ['angular', 'javascript', 'frontend', 'node', 'go', 'backend', 'mcp', 'ai'];
 const RESERVED_SLUGS = new Set(['404', 'about', 'search', 'tags']);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -106,7 +106,7 @@ function defaultBanner(tag) {
     return `/images/tags/${tag}.svg`;
   }
 
-  fail(`missing default banner for tag "${tag}" (public/images/tags/${tag}.webp or .svg)`);
+  return seoData.home.ogImage;
 }
 
 function normalizeTags(tags, slug, mainTag) {
