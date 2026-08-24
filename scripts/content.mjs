@@ -9,7 +9,19 @@ import { marked } from 'marked';
 
 import seoData from '../src/app/data/seo.json' with { type: 'json' };
 
-const TAGS = ['angular', 'javascript', 'frontend', 'node', 'go', 'backend', 'mcp', 'ai'];
+const TAGS = [
+  'angular',
+  'javascript',
+  'frontend',
+  'micro-front-end',
+  'seo',
+  'ssr-ssg',
+  'node',
+  'go',
+  'backend',
+  'mcp',
+  'ai'
+];
 const RESERVED_SLUGS = new Set(['404', 'about', 'search', 'tags']);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 

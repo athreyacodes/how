@@ -4,7 +4,7 @@ tagline: The host owns nav, auth, and the route table. Remotes own a feature.
 description: How to split an Angular micro frontend so the shell stays a host, not a junk drawer of remotes.
 date: "2026-03-27"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

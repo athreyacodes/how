@@ -4,7 +4,7 @@ tagline: Standalone, then templates, then signals, then zoneless.
 description: How to sequence an Angular migration on a federated product so each step can ship without undoing the last one.
 date: "2026-01-09"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

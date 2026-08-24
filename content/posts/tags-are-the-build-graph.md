@@ -4,7 +4,7 @@ tagline: If a remote can import another remote’s internals, Nx did not save yo
 description: How Nx module-boundary tags keep Angular libraries and micro frontends from depending on the wrong things.
 date: "2026-04-17"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

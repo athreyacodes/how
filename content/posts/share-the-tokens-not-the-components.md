@@ -4,7 +4,7 @@ tagline: Remotes can share a colour. They should not share a junk drawer of widg
 description: How a design-token library keeps Angular micro frontends looking like one product without a fat shared component dump.
 date: "2026-05-01"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

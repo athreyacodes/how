@@ -4,7 +4,7 @@ tagline: If tags are wrong, you either rebuild the world or skip a remote.
 description: How Nx affected keeps a multi-product Angular monorepo honest in CI — and what happens when the graph lies.
 date: "2026-05-22"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

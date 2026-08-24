@@ -4,7 +4,7 @@ tagline: The crawler never waits for your component to wake up.
 description: How to set title, canonical, and Open Graph tags in a route resolver so prerendered HTML already has them.
 date: "2026-02-27"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, seo, ssr-ssg]
 draft: false
 ---
 

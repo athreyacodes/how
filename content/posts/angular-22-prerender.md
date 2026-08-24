@@ -4,7 +4,7 @@ tagline: So search engines see the page, not a shell.
 description: How to ship crawlable Angular pages with outputMode static, a resolver for metadata, and no CMS.
 date: "2026-02-20"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, seo, ssr-ssg]
 image: /images/posts/angular-22-prerender/banner.svg
 draft: false
 ---

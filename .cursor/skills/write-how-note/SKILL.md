@@ -56,18 +56,18 @@ tagline: One spoken line for the card.
 description: One sentence for search and social cards.
 date: "2026-08-24"
 updated: "2026-08-24"   # optional; defaults to date
-mainTag: angular        # angular | javascript | frontend | node | go | backend | mcp | ai
+mainTag: angular        # angular | javascript | frontend | micro-front-end | seo | ssr-ssg | node | go | backend | mcp | ai
 tags: [frontend]        # extras from that same list only
 draft: false
 ```
 
 - `slug` is the filename. Lowercase kebab-case. URLs are `https://how.athreya.codes/{slug}`.
-- `mainTag` is required. Extra `tags` must come from the same list. Typical pairs: `angular` + `frontend`, `javascript` + `frontend`, `node` + `backend`, `go` + `backend`, `mcp` + `ai`.
-- If you change the tag list, update `src/app/core/post.ts` and `scripts/content.mjs` together. Chip order on home is `angular, javascript, frontend, node, go, backend, mcp, ai`.
+- `mainTag` is required. Extra `tags` must come from the same list. Typical pairs: `angular` + `frontend`, `javascript` + `frontend`, `node` + `backend`, `go` + `backend`, `mcp` + `ai`. Add `micro-front-end`, `seo`, or `ssr-ssg` when that is the subject.
+- If you change the tag list, update `src/app/core/post.ts` and `scripts/content.mjs` together. Chip order on home is `angular, javascript, frontend, micro-front-end, seo, ssr-ssg, node, go, backend, mcp, ai`.
 - `draft: true` stays off production. Local `npm start` still shows it.
 - Reserved slugs: `404`, `about`, `search`, `tags`.
 
-Do not invent a second tag vocabulary. No freeform tags like `ssr` or `signals`.
+Do not invent a second tag vocabulary. No freeform tags like `signals`.
 
 ## How section
 

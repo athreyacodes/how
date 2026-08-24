@@ -4,7 +4,7 @@ tagline: If it is not in the file, it is not in search.
 description: How to check prerendered Angular HTML for real content, social cards, JSON-LD, and a 404 that stays a 404.
 date: "2026-03-06"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, seo, ssr-ssg]
 draft: false
 ---
 

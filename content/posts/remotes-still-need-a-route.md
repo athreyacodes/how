@@ -4,7 +4,7 @@ tagline: Standalone serve is not the product. The shell’s URL is.
 description: How an independently deployed Angular remote dies in the host when routing and auth contracts are implied instead of written down.
 date: "2026-05-29"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 

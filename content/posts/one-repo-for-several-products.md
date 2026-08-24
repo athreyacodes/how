@@ -4,7 +4,7 @@ tagline: The products share a platform. The repo should too.
 description: How an Nx monorepo earns its keep when several Angular products share libraries, tooling, and a release cadence.
 date: "2026-03-13"
 mainTag: angular
-tags: [frontend]
+tags: [frontend, micro-front-end]
 draft: false
 ---
 
