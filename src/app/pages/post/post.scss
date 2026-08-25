@@ -24,9 +24,15 @@ app-post {
 }
 
 .post h1 {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.6rem;
   font-size: clamp(1.85rem, 5vw, 2.6rem);
   line-height: 1.15;
+}
+
+.post .summary {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .post .tags span {
@@ -205,6 +211,12 @@ app-post {
   display: grid;
   gap: 1.75rem;
   min-width: 0;
+}
+
+.rail-divider {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid rgb(21 96 100 / 28%);
 }
 
 .similar h2,

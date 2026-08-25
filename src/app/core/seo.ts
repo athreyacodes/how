@@ -150,7 +150,7 @@ export class SeoService {
           '@type': 'WebSite',
           '@id': websiteId,
           name: seoData.siteName,
-          alternateName: 'Here’s how',
+          alternateName: 'Here’s how!',
           description: seoData.home.ogDescription,
           url: `${SITE_URL}/`,
           inLanguage: seoData.language,

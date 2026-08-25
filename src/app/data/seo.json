@@ -19,15 +19,15 @@
   "ogImageType": "image/jpeg",
   "rssPath": "/rss.xml",
   "home": {
-    "title": "Here’s how",
+    "title": "Here’s how!",
     "description": "Here’s how I build. Notes from a decade of front-end work — Angular, architecture, and the tools around them — written down as I go.",
-    "ogTitle": "Here’s how",
+    "ogTitle": "Here’s how!",
     "ogDescription": "Here’s how I build. Notes from a decade of front-end work — Angular, architecture, and the tools around them — written down as I go.",
     "ogImage": "/images/og-card.jpg",
     "ogType": "website",
     "imageAlt": "Here’s how — technical writing by Athreya M R",
     "twitterCard": "summary_large_image",
-    "twitterTitle": "Here’s how",
+    "twitterTitle": "Here’s how!",
     "twitterDescription": "Here’s how I build. Notes from a decade of front-end work — Angular, architecture, and the tools around them — written down as I go.",
     "twitterImage": "/images/og-card.jpg"
   },
