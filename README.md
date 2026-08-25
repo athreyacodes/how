@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4201/`. Drafts are included locally.
+Open `http://localhost:2911/`. Drafts are included locally.
 
 ## Production build
 

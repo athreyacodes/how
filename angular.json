@@ -119,7 +119,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "port": 4201
+            "port": 2911
           }
         }
       }
