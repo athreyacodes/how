@@ -25,18 +25,43 @@
     </figcaption>
   </figure>
 
-  <div class="filters" role="group" aria-label="Filter by tag">
-    @for (item of tags; track item) {
-      <button
-        type="button"
-        class="chip"
-        [class.chip--on]="tag() === item"
-        [attr.aria-pressed]="tag() === item"
-        (click)="toggleTag(item)"
-      >
-        {{ tagLabel(item) }}
-      </button>
-    }
+  <div class="toolbar">
+    <div class="filters" role="group" aria-label="Filter by tag">
+      @for (item of tags; track item) {
+        <button
+          type="button"
+          class="chip"
+          [class.chip--on]="tag() === item"
+          [attr.aria-pressed]="tag() === item"
+          (click)="toggleTag(item)"
+        >
+          {{ tagLabel(item) }}
+        </button>
+      }
+    </div>
+
+    <div class="search">
+      <label class="search-label" for="home-search">Search notes</label>
+      <input
+        id="home-search"
+        class="search-input"
+        type="search"
+        placeholder="Search notes"
+        autocomplete="off"
+        [value]="searchInput()"
+        (input)="onSearchInput($event)"
+      />
+      @if (searchInput()) {
+        <button
+          type="button"
+          class="search-clear"
+          aria-label="Clear search"
+          (click)="clearSearch()"
+        >
+          ×
+        </button>
+      }
+    </div>
   </div>
 
   @if (list().length === 0) {
@@ -64,5 +89,11 @@
         </li>
       }
     </ul>
+
+    @if (showLoadMore()) {
+      <div class="more">
+        <button type="button" class="load-more" (click)="loadMore()">Load more</button>
+      </div>
+    }
   }
 </section>
