@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-An Nx monorepo at Mimecast-scale has a lot of arrows. Product apps, a shell, UI libs, data-access libs. Without tags, `nx lint` will not stop a remote from importing another remote’s `internal/foo` helper. You find out in a production deploy when the helper moved.
+An Nx monorepo at platform-scale has a lot of arrows. Product apps, a shell, UI libs, data-access libs. Without tags, `nx lint` will not stop a remote from importing another remote’s `internal/foo` helper. You find out in a production deploy when the helper moved.
 
-At Enate we felt the same pain without as much Nx vocabulary: one remote reached into another because the path was there. The graph in your head was not the graph in the repo.
+On a workflow product we felt the same pain without as much Nx vocabulary: one remote reached into another because the path was there. The graph in your head was not the graph in the repo.
 
 Tags are how you write the graph down so CI can argue with you.
 

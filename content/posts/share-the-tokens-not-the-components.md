@@ -10,7 +10,7 @@ draft: false
 
 ## **What** was the situation
 
-Enate’s remotes had to look like one product. Mimecast’s products even more so — several surfaces, one platform. The first instinct is a shared Angular library with every button, every modal, every table.
+A workflow product’s remotes had to look like one product. An email-security platform’s products even more so — several surfaces, one platform. The first instinct is a shared Angular library with every button, every modal, every table.
 
 That library becomes the slowest-moving remote you have. Nobody wants to bump it. One product needs a destructive button, another needs a quiet one, the shared `ButtonComponent` grows a `variant` enum with twelve values and a comment that says "do not use overlay".
 

@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-Once Mimecast-scale products live in one Nx repo, CI cannot `build` everything on every PR. You will wait an hour and people will start pushing to main to "see it on the real pipeline".
+Once platform-scale products live in one Nx repo, CI cannot `build` everything on every PR. You will wait an hour and people will start pushing to main to "see it on the real pipeline".
 
-`nx affected` is the deal: look at the graph, look at the diff, run the tasks that can break. Enate-era MFE CI pain was the same idea without as nice a verb — you either built all remotes or you guessed.
+`nx affected` is the deal: look at the graph, look at the diff, run the tasks that can break. Workflow-era MFE CI pain was the same idea without as nice a verb — you either built all remotes or you guessed.
 
 The graph is only as good as the tags and the imports. Wrong tags, and affected lies in both directions.
 

@@ -10,7 +10,7 @@ draft: false
 
 ## **What** was the situation
 
-Once the Enate digest looked right in Outlook, we still had to share it with backend. They were going to merge data into it and send. The first version had cute names: `{{title}}`, `{{name}}`, a comment that said "repeat this tr for each item". Backend guessed. A deploy from front-end renamed a placeholder. Mail went out with literal `{{digestTitle}}` in the header, or worse, with a learner name that had an `&` and broke the markup.
+Once the workflow-product digest looked right in Outlook, we still had to share it with backend. They were going to merge data into it and send. The first version had cute names: `{{title}}`, `{{name}}`, a comment that said "repeat this tr for each item". Backend guessed. A deploy from front-end renamed a placeholder. Mail went out with literal `{{digestTitle}}` in the header, or worse, with a learner name that had an `&` and broke the markup.
 
 The HTML file is not a mock. It is an API. It needs a schema, escaping rules, and a version, the same way you would not change a REST field on a Friday without telling anyone.
 

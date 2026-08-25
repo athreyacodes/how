@@ -10,7 +10,7 @@ draft: false
 
 ## **What** was the situation
 
-At Mimecast we already had services that knew about email threat: a threat service that can talk about a scan and the most recent detections, a search service that can find those detections by sender, time, that sort of query. People used them through product APIs. Then the question became: can an agent do the same job without clicking the UI?
+On an email-security platform we already had services that knew about email threat: a threat service that can talk about a scan and the most recent detections, a search service that can find those detections by sender, time, that sort of query. People used them through product APIs. Then the question became: can an agent do the same job without clicking the UI?
 
 MCP is that door. It is not a new threat engine. It is a small server that exposes tools, and each tool is a boring wrapper around an API we already trust. Backend is the right place. The API repo already has auth, rate limits, and the rule that a detection payload is not a public webpage.
 
@@ -30,7 +30,7 @@ Skip this if you do not have an API yet. MCP will not invent detections. Also sk
 
 Stand up an MCP server next to the existing clients in the API repo. Tools map 1:1 to use cases, not 1:1 to every internal method.
 
-Threat service tools (names are ours for this note, not a real Mimecast catalogue):
+Threat service tools (names are ours for this note, not a real platform catalogue):
 
 - `get_latest_detections` — recent detections for a mailbox or tenant the caller can see
 - `get_detection` — one detection by id, same payload the API already returns

@@ -10,7 +10,7 @@ draft: false
 
 ## **What** was the situation
 
-On a platform like Mimecast, the same card shows up in more than one product: a detection summary, a status chip, a "open this" button. At Enate it was the same idea — a case card in the shell and in a remote.
+On an email-security platform, the same card shows up in more than one product: a detection summary, a status chip, a "open this" button. On a workflow product it was the same idea — a case card in the shell and in a remote.
 
 The parent already held the selected item in a signal. The child still took `@Input() item` as a plain value, then copied it into local state in `ngOnChanges`, then emitted `@Output() itemChange`. Three moving parts for "this card is this record, and the toggle on the card writes back".
 

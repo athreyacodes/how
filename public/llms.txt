@@ -28,7 +28,7 @@ The site is a static blog at https://how.athreya.codes. Each note is one decisio
 - [The filter is a signal, not a field you remember to update](https://how.athreya.codes/the-filter-is-a-signal): How a writable signal and a computed list replace a field plus a manual refresh on a filter chip.
 - [Stop putting *ngIf on a live list](https://how.athreya.codes/stop-star-ngif-on-a-live-list): How @if, @for, and @empty replace *ngIf and *ngFor on a list that actually changes.
 - [Migrate in this order or you will migrate twice](https://how.athreya.codes/migrate-in-this-order): How to sequence an Angular migration on a federated product so each step can ship without undoing the last one.
-- [The version bump is not the migration](https://how.athreya.codes/the-version-bump-is-not-the-migration): Bumping Angular on an Enate-era product does not give you the Mimecast-era app shape — you still have to change how the app is built.
+- [The version bump is not the migration](https://how.athreya.codes/the-version-bump-is-not-the-migration): Bumping Angular on a workflow-era product does not give you the platform-era app shape — you still have to change how the app is built.
 
 ## Optional
 

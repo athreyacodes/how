@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-At Enate the product was micro frontends because the team and the surface were too big for one deployable. A shell loaded remotes. Module Federation made that possible. The failure mode was treating the shell like a folder named `shell` that also contained half of every feature, "just for convenience".
+On a workflow product the surface was micro frontends because the team and the product were too big for one deployable. A shell loaded remotes. Module Federation made that possible. The failure mode was treating the shell like a folder named `shell` that also contained half of every feature, "just for convenience".
 
-Then you do not have micro frontends. You have a monolith with a remote extra step. A Mimecast-era platform with several products in Nx has the same fork: either the shell is a host, or every product is secretly the shell.
+Then you do not have micro frontends. You have a monolith with a remote extra step. A platform-era product with several apps in Nx has the same fork: either the shell is a host, or every product is secretly the shell.
 
 A shell is a runtime. It owns the thing every remote would otherwise copy: chrome, session, routing into a remote, maybe a toast. It does not own the case list, the digest builder, or the detection inbox.
 
@@ -20,8 +20,8 @@ A shell is a runtime. It owns the thing every remote would otherwise copy: chrom
 
 Use this when more than one Angular app has to appear as one product.
 
-- A workflow product with independently deployed areas (Enate).
-- A platform of products that share a top nav and a login (Mimecast).
+- A workflow product with independently deployed areas.
+- An email-security platform of products that share a top nav and a login.
 - A team split that maps to remotes, not to folders in one app.
 
 Skip this for How, or any single app that prerenders. Federation is cost. Do not pay it for a blog.

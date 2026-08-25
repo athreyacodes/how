@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-Zone.js was the quiet intern on every Angular app I shipped at Enate. A click, a `setTimeout`, a HTTP callback — Zone patched it, Angular ran change detection, the screen caught up. You could be sloppy and the intern would still file the paperwork.
+Zone.js was the quiet intern on every Angular app I shipped on a workflow product. A click, a `setTimeout`, a HTTP callback — Zone patched it, Angular ran change detection, the screen caught up. You could be sloppy and the intern would still file the paperwork.
 
-A Mimecast-era platform does not want that intern. Zoneless means: if a signal did not change, and you did not mark the view, nothing happens. That is the point. It is also why a "working" widget from 2020 goes dead after you flip the flag.
+A platform-era product does not want that intern. Zoneless means: if a signal did not change, and you did not mark the view, nothing happens. That is the point. It is also why a "working" widget from 2020 goes dead after you flip the flag.
 
 I hit this on third-party chrome — a date picker, an analytics callback, a `setTimeout` that mutated a plain field. Zone used to notice. Zoneless does not.
 

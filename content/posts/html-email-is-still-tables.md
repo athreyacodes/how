@@ -10,7 +10,7 @@ draft: false
 
 ## **What** was the situation
 
-At Enate we had email in the product, not as a side quest. The backend sent the mail. Someone still had to design the thing people actually opened: a case digest, a handover note, a "this row changed" alert with a table of fields, a button that had to work in Outlook.
+On a workflow product we had email in the product, not as a side quest. The backend sent the mail. Someone still had to design the thing people actually opened: a case digest, a handover note, a "this row changed" alert with a table of fields, a button that had to work in Outlook.
 
 The mistake is writing that template like a web page. Flexbox, `<style>` in the head, a nice card with `border-radius` and a CSS grid of actions. Gmail will try. Outlook will laugh. The backend will still send it.
 
@@ -37,7 +37,7 @@ Start with a table that is the whole world. Not a `<div>` you hope will centre.
       <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="width: 600px; max-width: 600px; background: #ffffff;">
         <tr>
           <td style="padding: 24px 32px; font-family: Arial, sans-serif; color: #12494c;">
-            <p style="margin: 0 0 8px; font-size: 13px; letter-spacing: 0.08em;">ENATE</p>
+            <p style="margin: 0 0 8px; font-size: 13px; letter-spacing: 0.08em;">PRODUCT</p>
             <h1 style="margin: 0 0 16px; font-size: 22px;">{{digestTitle}}</h1>
             <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.5;">{{digestLead}}</p>
           </td>

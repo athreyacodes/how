@@ -11,7 +11,7 @@ draft: false
 
 ## **What** was the situation
 
-I kept writing Angular pages the way I write apps: the route loads, JavaScript runs, then the content shows up. That is fine for a logged-in tool at Mimecast. It is a bad deal for a public note.
+I kept writing Angular pages the way I write apps: the route loads, JavaScript runs, then the content shows up. That is fine for a logged-in tool on an email-security platform. It is a bad deal for a public note.
 
 Search engines and social crawlers are impatient. A lot of them will take the first HTML they get. If that HTML is an empty shell, they think the page is empty. You can fight that with extra crawler setup. Or you can just give them the page.
 

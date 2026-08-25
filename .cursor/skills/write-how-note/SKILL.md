@@ -40,13 +40,13 @@ Keep the title specific and spoken. Keep `tagline` one spoken line. Keep `descri
 
 Use Athreya’s public work shapes:
 
-- Email-security platform at Mimecast (Angular, micro frontends, Nx monorepo)
-- Workflow / email product at Enate (micro frontends, email services)
+- An email-security platform (Angular, micro frontends, Nx monorepo)
+- A workflow / email product (micro frontends, email services)
 - This SSG site and the portfolio
 - Personal CLIs and side projects
 - NGO child-education tools are a side project, not a CV employer
 
-Name Enate and Mimecast the way the CV does. Do not invent internal repo names, real API paths, or threat-engine internals. Do not pull in other CV employers. A second idea is another note.
+Never name real employers in notes. Use generic terms only (workflow product, email-security platform, platform-era, workflow-era, and similar). Do not invent internal repo names, real API paths, or threat-engine internals. Do not invent other employer names. A second idea is another note.
 
 ## Frontmatter
 

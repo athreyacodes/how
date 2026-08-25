@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-At Enate we already had more than one front-end surface: a shell, remotes, email-related UI, a team that needed the same buttons to look the same. Separate repos meant separate Angular versions, separate lint, a shared library published as a package we were scared to bump.
+On a workflow product we already had more than one front-end surface: a shell, remotes, email-related UI, a team that needed the same buttons to look the same. Separate repos meant separate Angular versions, separate lint, a shared library published as a package we were scared to bump.
 
-At Mimecast the next-gen email security platform is several products. Same company, same design language, same auth story, different entry routes. An Nx monorepo is how that stays one platform instead of a handful of SPAs that drift.
+On an email-security platform the next-gen surface is several products. Same company, same design language, same auth story, different entry routes. An Nx monorepo is how that stays one platform instead of a handful of SPAs that drift.
 
 The point of the repo is not "we use Nx". It is that a button change, a token change, or an Angular migration has one place to happen.
 
@@ -30,7 +30,7 @@ Skip this for a single public site like How. A monorepo would be a costume. One 
 
 Put the products next to the libraries they share. Nx is the graph: apps depend on libs, libs declare what they are allowed to depend on. The CI runs what changed.
 
-A shape that has survived both Enate-scale MFE and Mimecast-scale products looks like this:
+A shape that has survived both MFE-scale and platform-scale products looks like this:
 
 ```text
 apps/

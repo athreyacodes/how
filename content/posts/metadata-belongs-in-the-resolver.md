@@ -24,7 +24,7 @@ Use this on any public Angular route whose metadata depends on the URL.
 - A site on Firebase Hosting or any static host, where there is no server to fix tags later.
 - A portfolio where canonical and `og:url` must be absolute, not `/about`.
 
-Skip this on a logged-in tool. Mimecast product UI does not need Google to index a detection. Do not prerender that, and do not pretend a resolver is for SEO there.
+Skip this on a logged-in tool. An email-security platform’s product UI does not need Google to index a detection. Do not prerender that, and do not pretend a resolver is for SEO there.
 
 ## **How** is it done
 

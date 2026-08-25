@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-Every Enate remote could `ng serve` on its own port and look finished. Module Federation made independent deploys possible. Then we loaded it in the shell and the route was blank, or the remote bounced to its own login, or the browser asked for a chunk on `localhost:4201` from a production host.
+Every workflow-product remote could `ng serve` on its own port and look finished. Module Federation made independent deploys possible. Then we loaded it in the shell and the route was blank, or the remote bounced to its own login, or the browser asked for a chunk on `localhost:4201` from a production host.
 
-Mimecast-era products in an Nx monorepo hit the same class of bug: the remote is a citizen of the shell’s URL space. Independent deploy means independent *build*, not independent *address book*. If the contract is only in someone’s head, the standalone app will keep lying to you.
+Platform-era products in an Nx monorepo hit the same class of bug: the remote is a citizen of the shell’s URL space. Independent deploy means independent *build*, not independent *address book*. If the contract is only in someone’s head, the standalone app will keep lying to you.
 
 ## **When** does this apply
 

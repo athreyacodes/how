@@ -1,7 +1,7 @@
 ---
 title: The version bump is not the migration
 tagline: New Angular is a different app, not a bigger number.
-description: Bumping Angular on an Enate-era product does not give you the Mimecast-era app shape — you still have to change how the app is built.
+description: Bumping Angular on a workflow-era product does not give you the platform-era app shape — you still have to change how the app is built.
 date: "2026-01-02"
 mainTag: angular
 tags: [frontend]
@@ -10,9 +10,9 @@ draft: false
 
 ## **What** was the situation
 
-At Enate we had a working Angular product. Micro frontends, a shell, remotes, a team that knew the patterns. The version number moved. The app shape did not.
+On a workflow product we had a working Angular app. Micro frontends, a shell, remotes, a team that knew the patterns. The version number moved. The app shape did not.
 
-Then I joined Mimecast and opened a next-gen email security platform: standalone APIs, signals, new control flow, an Nx monorepo that expected libraries to be honest about their edges. Same framework name. Not the same kind of app.
+Then I opened a next-gen email-security platform: standalone APIs, signals, new control flow, an Nx monorepo that expected libraries to be honest about their edges. Same framework name. Not the same kind of app.
 
 The trap is treating that as `ng update` and a weekend. A version bump updates packages. A migration changes what a component is allowed to be. If you only bump, you get a new compiler complaining about an old architecture.
 
@@ -40,7 +40,7 @@ Zone.js patches the world          You tell Angular what changed
 Webpack plus custom federation     Application builder, then federation on top
 ```
 
-The left column is an Enate-era product I would still recognise. The right column is what a Mimecast-era platform assumes. You cannot stand on the left and consume libraries written for the right without a real migration. The version in `package.json` will lie to you until the column matches.
+The left column is a workflow-era product I would still recognise. The right column is what a platform-era product assumes. You cannot stand on the left and consume libraries written for the right without a real migration. The version in `package.json` will lie to you until the column matches.
 
 So the first deliverable is not a green build. It is a one-page map: what still owns NgModules, what is already standalone, what the shell federates, what the design tokens assume. Then you migrate in an order. That order is a different note.
 

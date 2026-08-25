@@ -10,11 +10,11 @@ draft: false
 
 ## **What** was the situation
 
-Once you admit the version bump is not the migration, someone still has to pick an order. On an Enate-style product that already had a shell and remotes, the tempting plan was "do it all in this release": standalone, new control flow, signals, zoneless, new builder.
+Once you admit the version bump is not the migration, someone still has to pick an order. On a workflow-style product that already had a shell and remotes, the tempting plan was "do it all in this release": standalone, new control flow, signals, zoneless, new builder.
 
 That plan ships nothing. Every remote is half-migrated. The shell cannot federate a mix. You roll back the parts that hurt, and you have migrated twice.
 
-Mimecast-era platforms look smooth because the order was already decided. The work is making an older federated app walk that same order, one step that can go to production.
+Platform-era products look smooth because the order was already decided. The work is making an older federated app walk that same order, one step that can go to production.
 
 ## **When** does this apply
 
@@ -37,7 +37,7 @@ Ship this order. Do not skip ahead because a blog post made zoneless look easy.
 
 A remote can sit at step 2 while another is on step 3. The shell should be at least as far as the furthest remote it hosts, or you will debug "works in isolation, dead in the shell" for the wrong reason.
 
-Keep a checklist per remote, not a platform-wide banner that says "we are on signals now". Enate taught me that the shell will lie for you. Mimecast-era Nx tags make the lie visible, but only if the remote actually finished the step.
+Keep a checklist per remote, not a platform-wide banner that says "we are on signals now". An earlier product taught me that the shell will lie for you. Platform-era Nx tags make the lie visible, but only if the remote actually finished the step.
 
 ```text
 shell     ████ standalone ████ control flow ██░░░░ signals  ░░░░░ zoneless

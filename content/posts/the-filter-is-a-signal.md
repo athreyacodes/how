@@ -22,7 +22,7 @@ Use this when the state is on this page, and the view is a function of that stat
 
 - Tag filter, search box, open/closed panel, selected row.
 - A queue filter on an email-security product: this mailbox, this severity, last 24 hours — still local to the page until something else needs it.
-- A workflow inbox at Enate: "my cases" vs "team cases" as a chip, not a global store.
+- A workflow inbox on a workflow product: "my cases" vs "team cases" as a chip, not a global store.
 
 Skip this when the value has to live across routes, tabs, or remotes. Then it is URL state or a real store. A signal on the component will reset when the component dies, and that is the point.
 

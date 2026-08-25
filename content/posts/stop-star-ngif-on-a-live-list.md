@@ -20,8 +20,8 @@ The new control flow is not a prettier `*ngIf`. It is the template saying what t
 
 Use this on any template that branches and repeats — filters, inboxes, queues, settings panels.
 
-- A product queue at Mimecast: detections in, detections out, sometimes none.
-- A workflow list at Enate: cases for this team, empty on a quiet morning.
+- A product queue on an email-security platform: detections in, detections out, sometimes none.
+- A workflow list on a workflow product: cases for this team, empty on a quiet morning.
 - A public index like How: filter chips and a feed.
 
 Skip this if you are in a library that still has to compile for an old Angular. The old micro-syntax is not gone from the world. It is gone from apps I start now.
