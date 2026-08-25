@@ -6,14 +6,14 @@ import { distinctUntilChanged, map, of, switchMap, timer } from 'rxjs';
 
 import { TAGS, TAG_LABELS, type Tag } from '../../core/post';
 import { Posts } from '../../core/posts';
-import seoData from '../../data/seo.json';
+import { AuthorMenu } from '../../shared/author/author-menu';
 
 const PAGE_SIZE = 6;
 const SEARCH_DEBOUNCE_MS = 300;
 
 @Component({
   selector: 'app-home',
-  imports: [DatePipe, RouterLink],
+  imports: [AuthorMenu, DatePipe, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,7 +21,6 @@ const SEARCH_DEBOUNCE_MS = 300;
 export class Home {
   private readonly posts = inject(Posts);
 
-  protected readonly author = seoData.author;
   protected readonly tags = TAGS;
   protected readonly tag = signal<Tag | null>(null);
   protected readonly searchInput = signal('');

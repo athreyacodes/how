@@ -29,23 +29,6 @@
 .quote figcaption {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-}
-
-.quote picture,
-.quote img {
-  display: block;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #d2dfdf;
-}
-
-.quote cite {
-  font-style: italic;
-  font-weight: 600;
-  font-size: 0.95rem;
 }
 
 .toolbar {

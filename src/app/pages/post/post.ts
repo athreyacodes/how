@@ -18,6 +18,7 @@ import { map } from 'rxjs';
 import type { Post, Tag } from '../../core/post';
 import { Posts } from '../../core/posts';
 import bodies from '../../generated/bodies.json';
+import { AuthorCard } from '../../shared/author/author-card';
 
 const SECTIONS = [
   { id: 'what', label: 'What' },
@@ -28,7 +29,7 @@ const SECTIONS = [
 
 @Component({
   selector: 'app-post',
-  imports: [DatePipe, RouterLink],
+  imports: [AuthorCard, DatePipe, RouterLink],
   templateUrl: './post.html',
   styleUrl: './post.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
