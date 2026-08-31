@@ -19,6 +19,7 @@ import { AUTHOR } from '../../shared/author/author';
             rel="noopener noreferrer me"
             [attr.aria-label]="link.label"
           >
+            <span class="tooltip">{{ link.label }}</span>
             @switch (link.kind) {
               @case ('linkedin') {
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
